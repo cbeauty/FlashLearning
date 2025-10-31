@@ -27,6 +27,7 @@ const myImage = document.getElementById('myImage');
 
 // Set a timeout to change the image after 5 seconds (5000 milliseconds)
 setTimeout(function() {
+var imageName = getUrlParameter('image');
 window.location.href = 'https://cbeauty.github.io/FlashLearning/' + imageName + '.html'; // Construct the full path
 }, 7000); // 10000 milliseconds = 10 seconds
 
