@@ -1,6 +1,32 @@
 <div id="table-container"></div>
+<div class="image-container">
+    <!-- The main background image is set via CSS on the container -->
+    <img src="https://cbeauty.github.io/FlashLearning/1-b1.svg" alt="Overlay Image" class="overlay-image" id="overlayImage">
+    <button onclick="showOverlayImage()">Show Image</button>
+</div>
 
 <style>
+image-container {
+    position: relative; /* Crucial: sets the positioning context for absolute children */
+    width: 600px;
+    height: 400px;
+    background-image: url('background_image.jpg'); /* The background image */
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay-image {
+    position: absolute; /* Positions this image relative to the container */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the image perfectly */
+    z-index: 2; /* Ensures the overlay image is on top */
+    display: none; /* Initially hides the image */
+    /* Add desired width/height for the overlay image */
+    width: 100px;
+    height: auto;
+}
+
   .fixed-table {
     table-layout: fixed; /* Important for fixed column widths */
     width: 100%; /* Or a specific fixed width */
@@ -23,6 +49,10 @@
 </style>
 <script>
 
+function showOverlayImage() {
+    var overlay = document.getElementById("overlayImage");
+    overlay.style.display = "block"; // Change from 'none' to 'block' to show the image
+}
 
   function createFixedTable(containerId, rows, cols) {
     const container = document.getElementById(containerId);
@@ -32,7 +62,7 @@
     }
 
 
-const  linesArray = new Array();
+let  linesArray = new Array();
 // Using Fetch API (modern approach)
 fetch('https://cbeauty.github.io/FlashLearning/answers.txt')
   .then(response => {
