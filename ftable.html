@@ -67,8 +67,7 @@ fetch('https://cbeauty.github.io/FlashLearning/answers.txt')
       const row = document.createElement('tr');
       for (let j = 0; j < cols; j++) {
         const cell = document.createElement('td');
-        const valueToPopulate = linesArray[(i + 1)* (j + 1)];
-        cell.textContent = valueToPopulate;
+        cell.textContent = linesArray[(i + 1)* (j + 1)];
         row.appendChild(cell);
       }
       tbody.appendChild(row);
