@@ -22,7 +22,7 @@
 
 </style>
 <script>
-let linesArray = [];
+
 
   function createFixedTable(containerId, rows, cols) {
     const container = document.getElementById(containerId);
@@ -30,6 +30,8 @@ let linesArray = [];
       console.error("Container element not found.");
       return;
     }
+
+let linesArray = [];
 
 // Using Fetch API (modern approach)
 fetch('https://cbeauty.github.io/FlashLearning/answers.txt')
