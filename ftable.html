@@ -1,0 +1,86 @@
+<div id="table-container"></div>
+
+<style>
+  .fixed-table {
+    table-layout: fixed; /* Important for fixed column widths */
+    width: 100%; /* Or a specific fixed width */
+    height: 100%;
+    border-collapse: collapse;
+  }
+
+  .fixed-table th,
+  .fixed-table td {
+    width: 20%; /* Fixed cell width (adjust as needed) */
+    height: 20%; /* Fixed row height (adjust as needed) */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Add ellipsis for hidden text */
+    white-space: wrap; /* Prevent text wrapping */
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+
+</style>
+<script>
+
+const answers = ["Magnification = image size / real size","Osmosis","Mitosis and meiosis","Enzymes","Mitochondria","Glucose + oxygen -> carbon dioxide + water","Circulatory system","Lower it","Movement of particles from high to low concentration","Movement against concentration gradient using energy","DNA","46 23 pairs","Insulates neurones, speeds up impulse transmission","Brain and spinal cord","Gap between two neurones","Neurotransmitters","Rapid, automatic response to stimuli","Cerebellum","Undifferentiated cell capable of specialisation","Sequence of growth and division","Different form of a gene","The genetic makeup of an organism","Observable characteristics of an organism","Two identical alleles for a gene","Two different alleles for a gene","Dominant allele","Mutation and sexual reproduction","Colour blindness or haemophilia","Nucleus","Change in the DNA sequence","Charles Darwin","Survival of the fittest","Change in inherited characteristics over time","Humans breed organisms for desirable traits","Modifying an organism's genome for benefits","Potential harm to non-target insects","Restriction enzyme","DNA ligase","Genetically identical individual","Antibiotic resistant bacteria","Bacteria, viruses, fungi, protists","Introduce weakened pathogens to stimulate immunity","Antibodies","Antibiotics","Cannot be spread between individuals eg, cancer","Fungus mould","Pancreas produces little or no insulin","Smoking or poor diet, lack of exercise","Organism carrying a pathogen, but unaffected by it","Viruses","Carbon dioxide + water -> glucose + oxygen","Chlorophyll","Chloroplasts","Xylem","Phloem","Pores on the leaf surface for gas exchange","Guard cells","Water loss from leaves by evaporation","Reduces water loss from the leaf","Light intensity or CO2 concentration, temperature","Maintaining a constant internal environment","37 degrees Celsius","Pituitary gland","Insulin","Glucagon","Pancreas","Response reverses the initial change","Adrenaline","Adrenal glands","Sweating and vasodilation","Left atrium, right atrium, left ventricle, right ventricle","Aorta","Pulmonary artery","Arteries, veins, capillaries","Oxygen","Binds to oxygen in red blood cells","Water or glucose, hormones, ions, urea","Prevent backflow of blood","Oxygen and carbon dioxide","Large surface area, thin walls, good blood supply","Community of organisms and their environment","Make their own food usually through photosynthesis","Top of the food chain","Break down dead organisms bacteria, fungi","Photosynthesis","Respiration or combustion","Variety of living organisms in an area","Evaporation or condensation, precipitation","Diagram showing total mass at each trophic level","Position an organism occupies in a food chain"];
+
+  function createFixedTable(containerId, rows, cols) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+      console.error("Container element not found.");
+      return;
+    }
+
+// Using Fetch API (modern approach)
+fetch('answers.txt')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.text();
+  })
+  .then(fileContent => {
+    const linesArray = fileContent.split('\n');
+    console.log(linesArray);
+  })
+  .catch(error => {
+    console.error('Error fetching file:', error);
+  });
+
+    const table = document.createElement('table');
+    table.classList.add('fixed-table'); // Apply the CSS class
+
+    // Create table header
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    for (let i = 0; i < cols; i++) {
+      const th = document.createElement('th');
+      th.textContent = `Header ${i + 1}`;
+      headerRow.appendChild(th);
+    }
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Create table body
+    const tbody = document.createElement('tbody');
+    for (let i = 0; i < rows; i++) {
+      const row = document.createElement('tr');
+      for (let j = 0; j < cols; j++) {
+        const cell = document.createElement('td');
+        const valueToPopulate = linesArray[(i + 1)* (j + 1)];
+        cell.textContent = valueToPopulate;
+        row.appendChild(cell);
+      }
+      tbody.appendChild(row);
+    }
+    table.appendChild(tbody);
+
+    container.appendChild(table);
+  }
+
+  // Call the function to create the table
+  document.addEventListener('DOMContentLoaded', () => {
+    createFixedTable('table-container', 5, 5); // 5 rows, 3 columns
+  });
+</script>
