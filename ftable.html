@@ -1,4 +1,3 @@
-<meta http-equiv="Content-Security-Policy" content="font-src 'self' 'unsafe-inline' data:; img-src 'self' data:; style-src 'self' 'unsafe-inline' data:; script-src 'unsafe-eval' 'unsafe-inline' data:; default-src 'self' localhost:*">
 <div id="table-container"></div>
 <div class="image-container">
     <!-- The main background image is set via CSS on the container -->
@@ -100,13 +99,13 @@ fetch('https://cbeauty.github.io/FlashLearning/answers.txt')
       const row = document.createElement('tr');
       for (let j = 0; j < cols; j++) {
         const cell = document.createElement('td');
-        cell.textContent = linesArray[(i + 1)* (j + 1)];
+        const celcontent = linesArray[(i + 1)* (j + 1)];
+        cell.textContent = celcontent;
         row.appendChild(cell);
       }
       tbody.appendChild(row);
     }
     table.appendChild(tbody);
-
     container.appendChild(table);
   }
 
