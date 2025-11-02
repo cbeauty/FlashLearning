@@ -1,4 +1,4 @@
-Magnification = image size / real size
+Magnification = image size - real size
 Osmosis
 Mitosis and meiosis
 Enzymes
