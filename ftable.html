@@ -1,19 +1,32 @@
 <div id="table-container"></div>
 <div class="image-container">
     <!-- The main background image is set via CSS on the container -->
-    <img src="https://cbeauty.github.io/FlashLearning/1-b1.svg" alt="Overlay Image" class="overlay-image" id="overlayImage">
-    <button onclick="showOverlayImage()">Show Image</button>
+    <img src="https://cbeauty.github.io/FlashLearning/tick.png" alt="Overlay Image" class="overlay-image" id="overlayImage">
+   
 </div>
-
 <style>
 image-container {
     position: relative; /* Crucial: sets the positioning context for absolute children */
     width: 600px;
     height: 400px;
-    background-image: url('background_image.jpg'); /* The background image */
+    background-image: url('cloud.png'); /* The background image */
     background-size: cover;
     background-position: center;
 }
+
+    .overlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+    	  height: 100%;
+        transform: translate(-50%, -50%);
+        background-color: transparent;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000; /* Ensure it appears above other content */
+    }
 
 .overlay-image {
     position: absolute; /* Positions this image relative to the container */
@@ -49,13 +62,98 @@ image-container {
 </style>
 <script>
 
+let GRows = 5;
+let GCols = 5;
+let newDiv; //for overlays
+let answerCount =0;
+let selectedQ =-1;
+let selected = [];
+let grid = [];
+const topics = ["Key concepts in biology","Cells and control","Genetics","Natural selection and genetic modification","Health, disease and the development of medicines","Plant structures and their functions","Animal coordination, control and homeostasis","Exchange and transport in animals","Ecosystems and material cycles"];
 const answers = ["Magnification = image size / real size","Osmosis","Mitosis and meiosis","Enzymes","Mitochondria","Glucose + oxygen -> carbon dioxide + water","Circulatory system","Lower it","Movement of particles from high to low concentration","Movement against concentration gradient using energy","DNA","46 23 pairs","Insulates neurones, speeds up impulse transmission","Brain and spinal cord","Gap between two neurones","Neurotransmitters","Rapid, automatic response to stimuli","Cerebellum","Undifferentiated cell capable of specialisation","Sequence of growth and division","Different form of a gene","The genetic makeup of an organism","Observable characteristics of an organism","Two identical alleles for a gene","Two different alleles for a gene","Dominant allele","Mutation and sexual reproduction","Colour blindness or haemophilia","Nucleus","Change in the DNA sequence","Charles Darwin","Survival of the fittest","Change in inherited characteristics over time","Humans breed organisms for desirable traits","Modifying an organism's genome for benefits","Potential harm to non-target insects","Restriction enzyme","DNA ligase","Genetically identical individual","Antibiotic resistant bacteria","Bacteria, viruses, fungi, protists","Introduce weakened pathogens to stimulate immunity","Antibodies","Antibiotics","Cannot be spread between individuals eg, cancer","Fungus mould","Pancreas produces little or no insulin","Smoking or poor diet, lack of exercise","Organism carrying a pathogen, but unaffected by it","Viruses","Carbon dioxide + water -> glucose + oxygen","Chlorophyll","Chloroplasts","Xylem","Phloem","Pores on the leaf surface for gas exchange","Guard cells","Water loss from leaves by evaporation","Reduces water loss from the leaf","Light intensity or CO2 concentration, temperature","Maintaining a constant internal environment","37 degrees Celsius","Pituitary gland","Insulin","Glucagon","Pancreas","Response reverses the initial change","Adrenaline","Adrenal glands","Sweating and vasodilation","Left atrium, right atrium, left ventricle, right ventricle","Aorta","Pulmonary artery","Arteries, veins, capillaries","Oxygen","Binds to oxygen in red blood cells","Water or glucose, hormones, ions, urea","Prevent backflow of blood","Oxygen and carbon dioxide","Large surface area, thin walls, good blood supply","Community of organisms and their environment","Make their own food usually through photosynthesis","Top of the food chain","Break down dead organisms bacteria, fungi","Photosynthesis","Respiration or combustion","Variety of living organisms in an area","Evaporation or condensation, precipitation","Diagram showing total mass at each trophic level","Position an organism occupies in a food chain"];
+const questions = ["What is the formula for calculating magnification?","What process moves water across a partially permeable membrane?","Name the two types of cell division.","What molecules speed up chemical reactions in cells?","Which organelle is responsible for respiration?","What is the word equation for aerobic respiration?","Name the main transport system in multicellular organisms.","What do enzymes do to the activation energy?","Define diffusion.","What is active transport?","What is a chromosome made of?","How many chromosomes are in a human body cell?","What is the function of the myelin sheath?","Name the two parts of the central nervous system.","What is a synapse?","What carries the message across a synapse?","What is the purpose of a reflex arc?","Which part of the brain controls balance?","What is a stem cell?","What is the cell cycle?","Define allele.","What is a genotype?","Define phenotype.","What does homozygous mean?","What does heterozygous mean?","Which allele is expressed in a heterozygous genotype?","What causes genetic variation?","Name a sex-linked genetic disorder.","Where are chromosomes located in a eukaryotic cell?","What is a mutation?","Who proposed the theory of natural selection?","What is natural selection often called?","Define evolution.","What is selective breeding?","What is genetic engineering?","Name a concern about genetically modified (GM) crops.","What enzyme is used to cut DNA in genetic engineering?","What enzyme joins DNA fragments?","What is a clone?","Name an example of natural selection in action.","Name the four types of pathogens.","How do vaccines work?","What do white blood cells produce to fight pathogens?","Which type of drug kills bacteria?","What is a non-communicable disease?","What does penicillin originate from?","What causes Type 1 diabetes?","Name a risk factor for cardiovascular disease.","What is a vector in disease transmission?","What are antibiotics ineffective against?","What is the word equation for photosynthesis?","Which pigment absorbs light energy in plants?","Where does photosynthesis occur?","Which vessel transports water and minerals?","Which vessel transports sugars?","What are stomata?","What controls the opening and closing of stomata?","What is transpiration?","What is the function of the waxy cuticle?","Name a limiting factor for photosynthesis.","Define homeostasis.","What is the normal human body temperature?","Which gland controls most hormone production?","What hormone is released when blood glucose is too high?","What hormone is released when blood glucose is too low?","Where is insulin produced?","What is negative feedback?","What hormone is involved in the 'fight or flight' response?","Where is adrenaline produced?","How does the skin help cool the body?","Name the four chambers of the heart.","Which blood vessel carries oxygenated blood away from the heart?","Which blood vessel carries deoxygenated blood to the lungs?","Name the three types of blood vessels.","What do red blood cells transport?","What is the function of haemoglobin?","Name a component of blood plasma.","What is the function of valves in the heart and veins?","What is the main gas exchanged in the lungs?","How are alveoli adapted for gas exchange?","Define ecosystem.","What do producers do in a food chain?","What is an apex predator?","What are decomposers?","How is carbon dioxide removed from the atmosphere?","How is carbon dioxide added to the atmosphere?","What is biodiversity?","Name a process in the water cycle.","What is a pyramid of biomass?","What is a trophic level?"];
 
-
-function showOverlayImage() {
-    var overlay = document.getElementById("overlayImage");
-    overlay.style.display = "block"; // Change from 'none' to 'block' to show the image
+function getRandomInt(min, max) {
+  min = Math.ceil(min); // Ensure min is an integer
+  max = Math.floor(max); // Ensure max is an integer
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+
+function fadeIn(element, duration) {
+ // const element = document.getElementById(elementId);
+  if (!element) return;
+
+  let opacity = 0;
+  element.style.opacity = opacity;
+  element.style.display = 'block'; // Ensure the element is visible before fading in
+
+  const interval = 10; // Milliseconds between opacity increments
+  const increment = interval / duration; // How much to increase opacity each interval
+
+  const fadeEffect = setInterval(() => {
+    if (opacity < 1) {
+      opacity += increment;
+      element.style.opacity = opacity;
+    } else {
+      clearInterval(fadeEffect); // Stop the interval when fully faded in
+    }
+  }, interval);
+}
+
+function showOverlay() {
+
+
+	  newDiv = document.createElement('div');
+    newDiv.id = 'dynamicLayer';
+    newDiv.className = 'overlay';
+
+    selectedQ = getRandomInt(0, (GCols*GRows)-1);
+  	while (selected[grid[selectedQ]] >1){
+  				selectedQ = getRandomInt(0, (GCols*GRows)-1);
+			}
+    console.log('showOverlay: selectedQ:', selectedQ);
+    const divContent = grid[selectedQ] +':'+ questions[grid[selectedQ]];
+	  console.log('showOverlay: grid[selectedQ]:', grid[selectedQ]);
+	  console.log('showOverlay: divContent:', divContent);
+
+	  console.log('showOverlay: topic index:', Math.trunc(grid[selectedQ] /10));
+    newDiv.style.opacity = "0";
+    newDiv.innerHTML = '<center><h2>'+ topics[Math.trunc(grid[selectedQ] /10)] +'</h2><p>'+ divContent +'</p></center>';
+    document.body.appendChild(newDiv); // Appending to the body
+
+    var overlay = document.getElementById("overlayImage");
+
+      overlay.style.width = window.screen.width;
+      overlay.style.height = window.screen.height;
+      overlay.src = "https://cbeauty.github.io/FlashLearning/fog.svg";
+      overlay.style.opacity = 0; 
+      overlay.style.display = "block"; // Change from 'none' to 'block' to show the image
+    
+    fadeIn( overlay, 1000);
+    fadeIn(newDiv, 2000);
+
+    overlay.addEventListener('click', () => {
+	    overlay.remove();
+      newDiv.remove();
+    });
+    
+
+    newDiv.addEventListener('click', () => {
+	    newDiv.remove();
+      overlay.remove();
+    });
+
+    
+
+	// Or, if you want to add it to a specific container:
+	// const container = document.getElementById('myContainer');
+    // container.appendChild(newDiv);
+}
+
+
+
+
 
   function createFixedTable(containerId, rows, cols) {
     const container = document.getElementById(containerId);
@@ -64,17 +162,35 @@ function showOverlayImage() {
       return;
     }
 
+
+		for (let i = 0; i < answers.length; i++) {
+			selected.push(0);
+		}
+
+		for (let i = 0; i < rows*cols; i++) {
+
+			let selectedA = getRandomInt(0, answers.length-1);
+			while (selected[selectedA] ==1){
+				selectedA = getRandomInt(0, answers.length-1);
+				}
+			selected[selectedA] = 1;
+			grid[i]=selectedA;
+			}
+
+
     const table = document.createElement('table');
     table.classList.add('fixed-table'); // Apply the CSS class
 
     // Create table header
     const thead = document.createElement('thead');
     const headerRow = document.createElement('tr');
-    for (let i = 0; i < cols; i++) {
+   // for (let i = 0; i < cols; i++) {
       const th = document.createElement('th');
-      th.textContent = `Header ${i + 1}`;
+      th.colSpan = cols;
+      th.style.textAlign = 'center';
+      th.textContent = 'Biology';
       headerRow.appendChild(th);
-    }
+    //}
     thead.appendChild(headerRow);
     table.appendChild(thead);
 
@@ -84,7 +200,7 @@ function showOverlayImage() {
       const row = document.createElement('tr');
       for (let j = 0; j < cols; j++) {
         const cell = document.createElement('td');
-        const celcontent = answers[(i + 1)* (j + 1)];
+        const celcontent = grid[(i*cols)+ (j )] + ':' +answers[grid[(i*cols)+ (j )]];
         cell.textContent = celcontent;
         row.appendChild(cell);
       }
@@ -92,10 +208,72 @@ function showOverlayImage() {
     }
     table.appendChild(tbody);
     container.appendChild(table);
+
+         setTimeout(() => {
+        showOverlay();
+    }, 6000);
   }
+
+const table = document.getElementById('table-container'); // Assuming your table has an ID 'myTable'
+
+table.addEventListener('click', function(event) {
+  // Check if the clicked element is a table cell (td or th)
+  if (event.target.tagName === 'TD' || event.target.tagName === 'TH') {
+    console.log('Cell clicked:', event.target.textContent);
+    console.log('selectedQ:', selectedQ);
+    //alert(event.target.textContent);
+    if( grid[selectedQ] == event.target.textContent.split(':',1) ){
+    event.target.style.color = '#eeeeee';
+    event.target.style.backgroundColor = '#eeeeee';
+    selected[grid[selectedQ]]=2;
+    answerCount++;
+
+
+    var overlay = document.getElementById("overlayImage");
+    const clonedOverlay = overlay.cloneNode(true);
+
+    console.log('overlayImage src:', clonedOverlay.src);
+    console.log('selected cell left:', event.target.style.left);
+
+       
+    const cellRect = event.target.getBoundingClientRect();
+    clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
+    clonedOverlay.style.top = cellRect.top + cellRect.height/2; // The x-coordinate of the cell's left edge, relative to the viewport
+    document.body.appendChild(clonedOverlay);
+    clonedOverlay.style.display = "block"; // Change from 'none' to 'block' to show the image
+
+    }
+    if( answerCount < GCols*GRows){
+       setTimeout(() => {
+        showOverlay();
+    }, 1000);
+    
+    }
+    else{
+      overlay.style.width = window.screen.availWidth;
+      overlay.style.height = window.screen.availHeight;
+      overlay.src = "https://cbeauty.github.io/FlashLearning/fog.svg";
+      overlay.style.opacity = 0; 
+      overlay.style.display = "block"; // Change from 'none' to 'block' to show the image
+  fadeIn( overlay, 2000);
+
+    	//alert("Congratulations");
+    }
+    // Add your desired logic here
+  }
+});
 
   // Call the function to create the table
   document.addEventListener('DOMContentLoaded', () => {
-    createFixedTable('table-container', 5, 5); // 5 rows, 3 columns
+        const queryString = window.location.search; // Example: "?name=John&age=30"
+    const params = new URLSearchParams(queryString);
+
+    if( params.has('rows')){
+      GRows = params.get('rows');
+    }
+    if( params.has('cols')){
+      GCols = params.get('cols');
+    }
+    createFixedTable('table-container', GRows, GCols); // 5 rows, 3 columns
   });
 </script>
