@@ -1,0 +1,220 @@
+What is the unit of mass?						    
+What is a scalar quantity?						    
+What is a vector quantity?						    
+Name a vector quantity.							    	
+Name a scalar quantity.							    
+What is the standard SI unit for time?					    
+What is the standard SI unit for length?				    
+What is the formula for density?					    
+What is the density of water?						    
+What does the prefix 'kilo' mean?					    
+What is the formula for speed?						    
+What does the gradient on a distance-time graph represent?		    
+What is Newton's First Law of Motion?					    
+What is Newton's Second Law of Motion (formula)?			    
+What is terminal velocity?						    
+Name the two forces acting on a falling object.				    
+What does the area under a velocity-time graph represent?		    
+Define acceleration.							    
+What is Newton's Third Law?						    
+What is the stopping distance of a vehicle composed of?			    
+State the Law of Conservation of Energy.				    	
+What is efficiency?							    	
+What is the unit of energy?						    
+What is the unit of power?						    
+What is the formula for power?						    
+Name a renewable energy source.						    	
+Name a non-renewable energy source.					    
+How can you improve efficiency?						    
+What is the main energy transfer in a light bulb?			    
+What is gravitational potential energy (GPE) formula?			    
+What are the two types of waves?					    
+Name an example of a transverse wave.					    
+Name an example of a longitudinal wave.					    
+What is amplitude?							    
+What is frequency?							    
+What is the unit of frequency?						    
+What is the wave speed formula?						    
+What happens to light when it refracts?					    
+What is the angle of incidence equal to during reflection?		    
+Can sound travel through a vacuum?					    
+List the EM spectrum in order of increasing frequency.			    
+Which EM wave has the longest wavelength?				    
+Which EM wave has the highest energy?					    
+What EM wave is used for cooking food?					    
+What EM wave is used in TV remotes?					    
+What EM wave causes sunburn?						    
+Are EM waves longitudinal or transverse?				    
+What speed do all EM waves travel at in a vacuum?			    
+What colour is light refracted most by a prism?				    
+Why do objects appear black?						    
+Name the three types of radiation.					    
+Which radiation is the most ionising?					    
+Which radiation is the most penetrating?				    
+What can stop alpha radiation?						    
+What is half-life?							    
+What is background radiation?						    
+What is a beta particle?						    
+What is an alpha particle?						    
+What does irradiation mean?						    
+What is contamination?							    	
+What is the unit of work done?						    
+What is the formula for work done?					    
+What is potential difference (voltage)?					    
+What is kinetic energy (KE) formula?					    
+What is the formula for force due to gravity (weight)?			    
+What is the unit for force?						    
+What is the unit for pressure?						    
+What is the formula for pressure?					    
+What is power?								    
+What is the principle of conservation of energy?			    
+What is a resultant force?						    	
+What happens if the resultant force is zero?				    
+What is momentum?							    
+What is the unit of momentum?						    
+State the conservation of momentum.					    
+What is the formula for pressure in fluids?				    
+What force keeps boats afloat?						    
+What is the centre of gravity?						    
+What is a moment of a force?						    	
+What is the principle of moments?					    
+What is electric current?						    
+What is the unit of current?						    
+What is the unit of potential difference?				    
+What is the unit of resistance?						    
+What is Ohm's Law (formula)?						    
+How do you connect an ammeter in a circuit?				    
+How do you connect a voltmeter in a circuit?				    
+What happens to total resistance in a series circuit?			    
+What happens to current in a series circuit?				    
+What happens to voltage in a parallel circuit?				    
+Name the two poles of a magnet.						    
+Do like poles attract or repel?						    
+What happens when current flows through a wire?				    		
+What is the motor effect?						    
+What rule helps find the direction of the motor force?			    
+How can you increase the strength of an electromagnet?			    
+How does an electric motor work?					    
+Name a use of electromagnets.						    
+What are magnetic field lines called?					    
+What direction do field lines point?					    
+What is electromagnetic induction?					    
+What rule helps find the induced current direction?			    
+How does a generator work?						    
+What does a transformer do?						    
+What is the difference between a step-up and step-down transformer?	    
+What type of current do transformers use?				    
+Why is AC used in the National Grid?					    
+What reduces power loss in transmission lines?				    
+What does the primary coil do in a transformer?				    
+What does the secondary coil do in a transformer?			    
+									   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

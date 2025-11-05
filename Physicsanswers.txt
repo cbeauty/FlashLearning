@@ -1,0 +1,220 @@
+ Kilogram (kg).				
+ Has magnitude only.				
+ Has magnitude and direction.				
+ Velocity (or force, displacement, acceleration, momentum).			
+ Speed (or mass, time, distance, energy).				
+ Seconds (s).				
+ Metre (m).				
+ Density = mass / volume.				
+ 1000 kg/m³.				
+ Multiplied by 1000.				
+ Speed = distance / time.				
+ Speed (or velocity).				
+ Object stays in state of rest/uniform motion.				
+ Force = mass x acceleration (F=ma).				
+ Constant velocity when forces are balanced.				
+ Weight (gravity) and air resistance.				
+ Distance travelled.				
+ Rate of change of velocity.				
+ Equal and opposite reaction force.				
+ Thinking distance + braking distance.				
+ Energy cannot be created or destroyed, only transferred.			
+ Ratio of useful energy output to total energy input.			
+ Joule (J).				
+ Watt (W).				
+ Power = energy transferred / time.				
+ Solar (or wind, hydro, geothermal, tidal, biomass).			
+ Coal (or oil, gas, nuclear).				
+ Reduce wasted energy transfers.				
+ Electrical to light (and heat).				
+ GPE = mass x gravity x height (mgh).				
+ Transverse and longitudinal.				
+ Light (or any EM wave, water waves).				
+ Sound wave.				
+ Maximum displacement from rest position.				
+ Number of waves passing per second.				
+ Hertz (Hz).				
+ Wave speed = frequency x wavelength (v = f?).				
+ Changes speed and direction.				
+ Angle of reflection.				
+ No.				
+ Radio, micro, infra, visible, ultra, x-ray, gamma.				
+ Radio waves.				
+ Gamma rays.				
+ Microwaves.				
+ Infrared.				
+ Ultraviolet.				
+ Transverse.				
+ 3 x 10^8 m/s (speed of light).				
+ Violet.				
+ They absorb all visible light colours.				
+ Alpha, beta , gamma 				
+ Alpha.				
+ Gamma.				
+ Paper (or a few centimetres of air).				
+ Time for half the radioactive nuclei to decay.				
+ Radiation from natural and artificial sources.				
+ An electron.				
+ Helium nucleus (2 protons, 2 neutrons).				
+ Exposure to radiation source outside the body.				
+ Radioactive substance entering or remaining on body.			
+ Joule (J).				
+ Work done = force x distance.
+ Energy transferred per unit charge.				
+ KE = 0.5 x mass x velocity² (1/2 mv²).					
+ Weight = mass x gravitational field strength (g).			
+ Newton (N).				
+ Pascal (Pa).				
+ Pressure = force / area.				
+ Rate at which work is done.				
+ Energy cannot be created or destroyed.					
+ Single force that represents all other forces.				
+ Object is stationary or moving at constant velocity.		
+ Mass times velocity (p=mv).				
+ kg m/s.						
+ Total momentum before = total momentum after collision.		
+ P = height x density x gravity (h?g).				
+ Upthrust (or buoyancy).				
+ Point where an object's weight acts.				
+ Force x perpendicular distance from pivot.					
+ Total clockwise moments = total anticlockwise moments.		
+ Rate of flow of charge.				
+ Ampere (A).				
+ Volt (V).				
+ Ohm (image.gif					
+ V = I x R (Voltage = Current x Resistance).			
+ In series.				
+ In parallel.				
+ Sum of individual resistances.				
+ It is the same everywhere.				
+ It is the same across each branch.				
+ North and South.				
+ Repel.				
+ Creates a magnetic field around it.					
+ A current-carrying wire in magnetic field experiences force.	
+ Fleming's Left Hand Rule.					
+ Increase current (or add more coils, iron core).			
+ Uses motor effect to create rotation.					
+ Lifting heavy scrap metal (or relays, bells).			
+ Flux lines.				
+ North pole to South pole.					
+ Inducing a voltage by changing magnetic flux.			
+ Fleming's Right Hand Rule.						
+ Induces current by rotating coil in magnetic field.		
+ Changes voltage of an AC supply.						
+ Step-up increases voltage, step-down decreases voltage.		
+ Alternating current (AC).						
+ Voltage can be changed with transformers efficiently.		
+ Stepping up voltage (lowering current).				
+ Input coil where voltage is applied.				
+ Output coil where voltage is induced.	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
