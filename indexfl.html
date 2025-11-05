@@ -47,12 +47,12 @@ function showOverlay() {
     if(timerStarted==0){
       timerStarted= new Date();
     }
-    fadeIn(newDiv, 1000);
-
     newDiv.addEventListener('click', () => {
-	    newDiv.remove();
-     
+	    newDiv.remove(); 
     });
+    
+    
+    fadeIn(newDiv, 1000);
 	// Or, if you want to add it to a specific container:
 	// const container = document.getElementById('myContainer');
     // container.appendChild(newDiv);
@@ -60,10 +60,10 @@ function showOverlay() {
 
   function returnToMenu() {
 
-    const timenow = new Date()-4000;
-    const timeparam = timenow- timerStarted/1000.0;
+    const timenow = new Date();
+    const timeparam = ((timenow- timerStarted)/1000.0)-1; 
     const scoreparam = GRows*GCols;
-    const newPageUrl = 'menu.html?correctanswers=${encodeURIComponent(scoreparam)}&time=${encodeURIComponent(timeparam)}';
+    const newPageUrl = 'menu.html?correctanswers='+encodeURIComponent(scoreparam)+'&time='+encodeURIComponent(timeparam);
 
     
     // Redirect to the new page
@@ -123,6 +123,7 @@ function showOverlay() {
         
 
           cell.textContent = celcontent;
+          cell.style.textAlign = "center"; 
           row.appendChild(cell);
       
 
@@ -208,10 +209,10 @@ function showOverlay() {
     }
     else{
     
-    setTimeout(() => {
-            returnToMenu();
-    }, 4000);  
-  
+              setTimeout(() => {
+        returnToMenu();
+    }, 1000);
+   
 
     }
     // Add your desired logic here

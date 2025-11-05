@@ -15,7 +15,7 @@
         }
         table {
             border-collapse: collapse;
-            border: 1px solid black;
+            border: 0px solid black;
         }
         td {
             border: 1px solid black;
@@ -117,7 +117,7 @@
     const subject = selectedOption.value;
 
     // Construct URL with parameters
-    const newPageUrl = 'indexfl.html?subject=${encodeURIComponent(subject)}&rows=${encodeURIComponent(rows)}&cols=${encodeURIComponent(rows)}';
+    const newPageUrl = 'indexfl.html?subject='+encodeURIComponent(subject)+'&rows='+encodeURIComponent(rows)+'&cols='+encodeURIComponent(rows);
 
     // Redirect to the new page
     window.location.href = newPageUrl;
@@ -160,8 +160,8 @@
                 <legend>Select your difficulty level:</legend>
 
                 <div>
-                    <input type="radio" id="easy" name="fav_color" value=3>
-                    <label for="red">Easy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="radio" id="easy" name="fav_color" value=3 checked=true >
+                    <label for="red">Easy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 </div>
 
                 <div>
@@ -171,7 +171,7 @@
 
                 <div>
                     <input type="radio" id="hard" name="fav_color" value=5>
-                    <label for="green">Hard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <label for="green">Hard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 </div>
                 
             
