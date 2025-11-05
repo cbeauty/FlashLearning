@@ -1,90 +1,69 @@
-Magnification = image size - real size
-Osmosis
-Mitosis and meiosis
-Enzymes
-Mitochondria
-Glucose + oxygen -> carbon dioxide + water
-Circulatory system
-Lower it
-Movement of particles from high to low concentration
-Movement against concentration gradient using energy
-DNA
-46 23 pairs
-Insulates neurones, speeds up impulse transmission
-Brain and spinal cord
-Gap between two neurones
-Neurotransmitters
-Rapid, automatic response to stimuli
-Cerebellum
-Undifferentiated cell capable of specialisation
-Sequence of growth and division
-Different form of a gene
-The genetic makeup of an organism
-Observable characteristics of an organism
-Two identical alleles for a gene
-Two different alleles for a gene
-Dominant allele
-Mutation and sexual reproduction
-Colour blindness or haemophilia
-Nucleus
-Change in the DNA sequence
-Charles Darwin
-Survival of the fittest
-Change in inherited characteristics over time
-Humans breed organisms for desirable traits
-Modifying an organism's genome for benefits
-Potential harm to non-target insects
-Restriction enzyme
-DNA ligase
-Genetically identical individual
-Antibiotic resistant bacteria
-Bacteria, viruses, fungi, protists
-Introduce weakened pathogens to stimulate immunity
-Antibodies
-Antibiotics
-Cannot be spread between individuals eg, cancer
-Fungus mould
-Pancreas produces little or no insulin
-Smoking or poor diet, lack of exercise
-Organism carrying a pathogen, but unaffected by it
-Viruses
-Carbon dioxide + water -> glucose + oxygen
-Chlorophyll
-Chloroplasts
-Xylem
-Phloem
-Pores on the leaf surface for gas exchange
-Guard cells
-Water loss from leaves by evaporation
-Reduces water loss from the leaf
-Light intensity or CO2 concentration, temperature
-Maintaining a constant internal environment
-37 degrees Celsius
-Pituitary gland
-Insulin
-Glucagon
-Pancreas
-Response reverses the initial change
-Adrenaline
-Adrenal glands
-Sweating and vasodilation
-Left atrium, right atrium, left ventricle, right ventricle
-Aorta
-Pulmonary artery
-Arteries, veins, capillaries
-Oxygen
-Binds to oxygen in red blood cells
-Water or glucose, hormones, ions, urea
-Prevent backflow of blood
-Oxygen and carbon dioxide
-Large surface area, thin walls, good blood supply
-Community of organisms and their environment
-Make their own food usually through photosynthesis
-Top of the food chain
-Break down dead organisms bacteria, fungi
-Photosynthesis
-Respiration or combustion
-Variety of living organisms in an area
-Evaporation or condensation, precipitation
-Diagram showing total mass at each trophic level
-Position an organism occupies in a food chain
+A: +1 (positive).
+A: -1 (negative).
+A: 0 (neutral).
+A: Nucleus.
+A: Number of protons in an atom.
+A: Mass number - atomic number.
+A: Atoms with same protons, different neutrons.
+A: Electrostatic attraction between ions.
+A: Shared pair of electrons.
+A: 18.0 [H=1, O=16]
+A: Tightly packed in fixed positions.
+A: Boiling (or evaporation).
+A: Condensation.
+A: Filtration.
+A: Evaporation (or crystallisation).
+A: Separating funnel.
+A: Separating mixtures of soluble substances (e.g., inks).
+A: Gain kinetic energy, move faster, spread out.
+A: Contains only one type of compound or element.
+A: Contains two or more different substances.
+A: A substance that produces H+ ions in solution.
+A: A substance that accepts H+ ions.
+A: A soluble base that produces OH- ions.
+Salt and water.
+Salt and hydrogen gas.
+pH 7.
+Oxidation (loss of electrons) occurs here.
+Reduction (gain of electrons) occurs here.
+Ions.
+Copper metal.
+Electrolysis.
+Reduction with carbon.
+Aluminium (or sodium, potassium, calcium).
+Reaction that can go both forwards and backwards.
+Forward and reverse reactions occur at same rate.
+Rock containing enough metal for extraction.
+Iron oxide (Fe2O3).
+Carbon monoxide (CO).
+Shifts to side with fewer gas molecules.
+By atomic number.
+Same number of outer shell electrons.
+Alkali metals.
+Halogens.
+Noble gases.
+Increases (more reactive).
+Decreases (less reactive).
+No, they are very unreactive.
+Lithium hydroxide and hydrogen gas.
+Potassium chloride and bromine (displacement reaction).
+Temperature (or concentration, surface area, catalyst, pressure).
+Speeds up reaction without being used up.
+Particles must collide with sufficient energy.
+Releases energy (usually heat) to surroundings.
+Takes in energy (usually heat) from surroundings.
+Combustion (or neutralisation, respiration).
+Photosynthesis (or thermal decomposition).
+Minimum energy needed for a reaction to start.
+Lowers it.
+g/s (grams per second) or cm³/s.
+A finite resource, mixture of hydrocarbons.
+Fractional distillation.
+Carbon dioxide and water.
+Carbon monoxide (toxic gas) or soot.
+Sulfur dioxide.
+Carbon dioxide (or methane, water vapour).
+Increased significantly due to early life.
+Volcanic activity.
+Shorter alkanes and alkenes.
+Fossil fuels (or nuclear, renewables).

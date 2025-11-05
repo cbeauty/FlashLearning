@@ -1,90 +1,72 @@
-What is the formula for calculating magnification?
-What process moves water across a partially permeable membrane?
-Name the two types of cell division.
-What molecules speed up chemical reactions in cells?
-Which organelle is responsible for respiration?
-What is the word equation for aerobic respiration?
-Name the main transport system in multicellular organisms.
-What do enzymes do to the activation energy?
-Define diffusion.
-What is active transport?
-What is a chromosome made of?
-How many chromosomes are in a human body cell?
-What is the function of the myelin sheath?
-Name the two parts of the central nervous system.
-What is a synapse?
-What carries the message across a synapse?
-What is the purpose of a reflex arc?
-Which part of the brain controls balance?
-What is a stem cell?
-What is the cell cycle?
-Define allele.
-What is a genotype?
-Define phenotype.
-What does homozygous mean?
-What does heterozygous mean?
-Which allele is expressed in a heterozygous genotype?
-What causes genetic variation?
-Name a sex-linked genetic disorder.
-Where are chromosomes located in a eukaryotic cell?
-What is a mutation?
-Who proposed the theory of natural selection?
-What is natural selection often called?
-Define evolution.
-What is selective breeding?
-What is genetic engineering?
-Name a concern about genetically modified (GM) crops.
-What enzyme is used to cut DNA in genetic engineering?
-What enzyme joins DNA fragments?
-What is a clone?
-Name an example of natural selection in action.
-Name the four types of pathogens.
-How do vaccines work?
-What do white blood cells produce to fight pathogens?
-Which type of drug kills bacteria?
-What is a non-communicable disease?
-What does penicillin originate from?
-What causes Type 1 diabetes?
-Name a risk factor for cardiovascular disease.
-What is a vector in disease transmission?
-What are antibiotics ineffective against?
-What is the word equation for photosynthesis?
-Which pigment absorbs light energy in plants?
-Where does photosynthesis occur?
-Which vessel transports water and minerals?
-Which vessel transports sugars?
-What are stomata?
-What controls the opening and closing of stomata?
-What is transpiration?
-What is the function of the waxy cuticle?
-Name a limiting factor for photosynthesis.
-Define homeostasis.
-What is the normal human body temperature?
-Which gland controls most hormone production?
-What hormone is released when blood glucose is too high?
-What hormone is released when blood glucose is too low?
-Where is insulin produced?
-What is negative feedback?
-What hormone is involved in the 'fight or flight' response?
-Where is adrenaline produced?
-How does the skin help cool the body?
-Name the four chambers of the heart.
-Which blood vessel carries oxygenated blood away from the heart?
-Which blood vessel carries deoxygenated blood to the lungs?
-Name the three types of blood vessels.
-What do red blood cells transport?
-What is the function of haemoglobin?
-Name a component of blood plasma.
-What is the function of valves in the heart and veins?
-What is the main gas exchanged in the lungs?
-How are alveoli adapted for gas exchange?
-Define ecosystem.
-What do producers do in a food chain?
-What is an apex predator?
-What are decomposers?
-How is carbon dioxide removed from the atmosphere?
-How is carbon dioxide added to the atmosphere?
-What is biodiversity?
-Name a process in the water cycle.
-What is a pyramid of biomass?
-What is a trophic level?
+What is the charge of a proton?
+What is the charge of an electron?
+What is the charge of a neutron?
+Where are protons and neutrons found in an atom?
+What is the definition of atomic number?
+How do you calculate the number of neutrons?
+What is an isotope?
+What is an ionic bond?
+What is a covalent bond?
+What is the relative formula mass (Mr) of H2O?
+Describe the particle arrangement in a solid.
+What process turns a liquid into a gas?
+What process turns a gas into a liquid?
+Name a separation technique for an insoluble solid from liquid.
+Name a separation technique for a soluble solid from liquid.
+How can you separate two immiscible liquids?
+What is chromatography used for?
+What happens to particles during heating?
+Define a pure substance.
+What is a mixture?
+What is an acid?
+What is a base?
+What is an alkali?
+What is produced when an acid reacts with a base?
+What is produced when an acid reacts with a metal?
+What pH value is neutral?
+What happens at the anode during electrolysis?
+What happens at the cathode during electrolysis?
+What conducts electricity in an electrolyte?
+What is produced at the cathode during electrolysis of copper chloride solution?
+How are metals above carbon in the reactivity series extracted?
+How are metals below carbon in the reactivity series extracted?
+Name a metal extracted using electrolysis.
+What is a reversible reaction?
+What is dynamic equilibrium?
+What is an ore?
+In Fe2O3 + 3CO -> 2Fe + 3CO2, which substance is reduced?
+In the same reaction, which substance is oxidised?
+What is the symbol for a reversible reaction?
+What happens to equilibrium if you increase pressure in a gaseous system?
+How are elements arranged in the modern periodic table?
+What do elements in the same group have in common?
+What is Group 1 called?
+What is Group 7 called?
+What is Group 0 called?
+Describe the reactivity trend in Group 1 as you go down.
+Describe the reactivity trend in Group 7 as you go down.
+Are noble gases reactive?
+What product is formed when lithium reacts with water?
+What is formed when chlorine reacts with potassium bromide solution?
+Name a factor affecting the rate of reaction.
+What is a catalyst?
+What is the collision theory?
+What is an exothermic reaction?
+What is an endothermic reaction?
+Name an example of an exothermic reaction.
+Name an example of an endothermic reaction.
+What does activation energy mean?
+How does a catalyst affect activation energy?
+What is the units for rate of reaction?
+What is crude oil?
+What process separates crude oil?
+What are the products of complete combustion of hydrocarbons?
+What can incomplete combustion produce?
+What gas causes acid rain?
+Name a major greenhouse gas.
+How has the percentage of oxygen in the atmosphere changed?
+What caused the early Earth's atmosphere?
+What is produced from the cracking of long-chain hydrocarbons?
+What do we use for power generation?
+
+
