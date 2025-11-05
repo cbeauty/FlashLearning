@@ -18,7 +18,7 @@
             border: none;
         }
         td {
-            border: 1px solid black;
+            border: none;
             padding: 10px;
             text-align: center;
             vertical-align: middle;
@@ -51,7 +51,8 @@
         if(GCompletionTime > 0){
 
             let congratsCell = document.getElementById('congrats');
-            congratsCell.textContent = "Contratulations"
+            congratsCell.textContent = "Congratulations";
+            congratsCell.style.fontSize = "36px";
 
 
             let scoreCell = document.getElementById('score');
@@ -139,10 +140,10 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td>Flash Learning</td>
+                <td style="font-size: 36px; color: red;">Flash Learning</td>
             </tr>
             <tr>
-                <td>Learning through play</td>
+                <td><i>Learning through play</i></td>
             </tr>
             <tr>
                 <td>Choose your revision topic:</td>
@@ -161,7 +162,7 @@
 
                 <div>
                     <input type="radio" id="easy" name="fav_color" value=3 checked=true >
-                    <label for="red">Easy&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <label for="red">Easy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 </div>
 
                 <div>
@@ -171,7 +172,7 @@
 
                 <div>
                     <input type="radio" id="hard" name="fav_color" value=5>
-                    <label for="green">Hard&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <label for="green">Hard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 </div>
                 
             
