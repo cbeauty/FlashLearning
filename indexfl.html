@@ -156,6 +156,7 @@ function showOverlay() {
     }, 6000);
   }
 
+
     const table = document.getElementById('table-container'); // Assuming your table has an ID 'myTable'
 
     table.addEventListener('click', function(event) {
@@ -193,23 +194,27 @@ function showOverlay() {
     }
     else{
     
-     
-
-    const timenow = new Date();
-
-   
-
-    const newPageUrl = 'menu.html?correctanswers=${encodeURIComponent(GRows*GCols)}&time=${encodeURIComponent(timenow- timerStarted)/1000.0}';
-
-    // Redirect to the new page
-    window.location.href = newPageUrl;
-
-   
+    setTimeout(() => {
+            returnToMenu();
+    }, 1000);  
+  
 
     }
     // Add your desired logic here
   }
 });
+
+  function returnToMenu() {
+
+    const timenow = new Date();
+    const newPageUrl = 'menu.html?correctanswers=${encodeURIComponent(GRows*GCols)}&time=${encodeURIComponent(timenow- timerStarted)/1000.0)}';
+
+    
+    // Redirect to the new page
+    window.location.href = newPageUrl;
+
+
+  };
 
   // Call the function to create the table
     document.addEventListener('DOMContentLoaded', () => {
