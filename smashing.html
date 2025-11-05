@@ -1,0 +1,315 @@
+ <link rel="stylesheet" href="style.css">
+<div id="table-container"></div>
+<div class="image-container">
+    <!-- The main background image is set via CSS on the container -->
+    <img src="" alt="Overlay Image" class="overlay-image" id="overlayImage">
+   <img src="" alt="Grid Overlay Image" class="gridoverlay-image" id="gridoverlayImage">
+</div>
+<script src="functions.js"></script>
+<script>
+
+let timerStarted = 0;
+let GRows = 5;
+let GCols = 5;
+let GSubject = '';
+let newDiv; //for overlays
+let answerCount =0;
+let selectedQ =-1;
+let selected = [];
+let grid = [];
+let answers = [];
+let questions = [];
+let topics = [];
+
+const table = document.getElementById('table-container'); // Assuming your table has an ID 'myTable'
+
+
+function showOverlay() {
+
+
+	
+
+    selectedQ = getRandomInt(0, (GCols*GRows)-1);
+  	while (selected[grid[selectedQ]] >1){
+  				selectedQ = getRandomInt(0, (GCols*GRows)-1);
+			}
+    console.log('showOverlay: selectedQ:', selectedQ);
+    const divContent = grid[selectedQ] +':'+ questions[grid[selectedQ]];
+	  
+	  console.log('showOverlay: topic index:', Math.trunc(grid[selectedQ] /topics.length));
+
+
+    if(questions[grid[selectedQ]].startsWith('#')){
+
+    var overlay = document.getElementById("gridoverlayImage");
+    const clonedOverlay = overlay.cloneNode(true);
+    const parts = questions[grid[selectedQ]].split('#');
+    console.log('cell id:',cell);
+    console.log('parts array:',parts);
+    console.log('image src:', 'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.png');
+    clonedOverlay.src =   'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.png';
+    
+    //clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
+    ///clonedOverlay.style.top = cellRect.top + cellRect.height/2; // The x-coordinate of the cell's left edge, relative to the viewport
+   clonedOverlay.style.width = '100%';
+   clonedOverlay.style.height =  '100%';
+    document.body.appendChild(clonedOverlay);
+    //cell.appendChild(clonedOverlay);
+    clonedOverlay.style.display = "block"; // Change from 'none' to 'block' to show the image
+
+    clonedOverlay.addEventListener('click', () => {
+      console.log('cell IMAGE clicked');
+	    clonedOverlay.style.display = "none"; 
+    });
+    }
+    else{
+    newDiv = document.createElement('div');
+    newDiv.id = 'dynamicLayer';
+    newDiv.className = 'overlay';
+    newDiv.style.opacity = "0";
+    newDiv.innerHTML = '<center><h2>'+ topics[Math.trunc(grid[selectedQ] /topics.length)] +'</h2><p style="font-size: 48px;">'+ divContent +'</p></center>';
+    document.body.appendChild(newDiv); // Appending to the body
+
+        newDiv.addEventListener('click', () => {
+	    newDiv.remove(); 
+    });
+    }
+   
+
+    if(timerStarted==0){
+      timerStarted= new Date();
+    }
+
+    
+    
+    fadeIn(newDiv, 1000);
+	// Or, if you want to add it to a specific container:
+	// const container = document.getElementById('myContainer');
+    // container.appendChild(newDiv);
+}
+
+  function returnToMenu() {
+
+    const timenow = new Date();
+    const timeparam = ((timenow- timerStarted)/1000.0)-1; 
+    const scoreparam = GRows*GCols;
+    const newPageUrl = 'menu.html?correctanswers='+encodeURIComponent(scoreparam)+'&time='+encodeURIComponent(timeparam);
+
+    
+    // Redirect to the new page
+    window.location.href = newPageUrl;
+
+
+  };
+
+  function createFixedTable(containerId, rows, cols) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+      console.error("Container element not found.");
+      return;
+    }
+
+ 
+   console.log('answers:',answers);   
+		for (let i = 0; i < answers.length; i++) {
+			selected.push(0);
+		}
+
+		for (let i = 0; i < rows*cols; i++) {
+
+			let selectedA = getRandomInt(0, answers.length-1);
+			while (selected[selectedA] ==1){
+				selectedA = getRandomInt(0, answers.length-1);
+				}
+			selected[selectedA] = 1;
+			grid[i]=selectedA;
+			}
+
+
+    const table = document.createElement('table');
+    table.classList.add('fixed-table'); // Apply the CSS class
+
+    // Create table header
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+   // for (let i = 0; i < cols; i++) {
+      const th = document.createElement('th');
+      th.colSpan = cols;
+      th.style.textAlign = 'center';
+      th.textContent = GSubject;
+      headerRow.appendChild(th);
+    //}
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Create table body
+    const tbody = document.createElement('tbody');
+    for (let i = 0; i < rows; i++) {
+      const row = document.createElement('tr');
+      for (let j = 0; j < cols; j++) {
+        const cell = document.createElement('td');
+        cell.id = 'cell'+(i*cols)+j;
+        const celcontent = grid[(i*cols)+ (j )] + ':' +answers[grid[(i*cols)+ (j )]];
+        
+        if(answers[grid[(i*cols)+ (j )]].startsWith('#')){
+
+          cell.style.fontSize = "6";
+
+
+        }
+        else{
+
+          cell.style.fontSize = "18";
+        }
+          
+
+
+        
+
+          cell.textContent = celcontent;
+          cell.style.textAlign = "center"; 
+          
+          row.appendChild(cell);
+      
+
+        
+        console.log('cell id:',cell.id);   
+        
+      }
+      tbody.appendChild(row);
+    }
+    table.appendChild(tbody);
+    container.appendChild(table);
+
+  for (let i = 0; i < rows; i++) {
+      for (let j = 0; j < cols; j++) {
+      
+        
+        celcontent = answers[grid[(i*cols)+ (j )]];
+        
+        if(celcontent.startsWith('#')){
+
+    cell = document.getElementById('cell'+(i*cols)+j);
+    var overlay = document.getElementById("overlayImage");
+    const clonedOverlay = overlay.cloneNode(true);
+    const parts = celcontent.split('#');
+    console.log('cell id:',cell);
+    console.log('parts array:',parts);
+    console.log('image src:', 'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.svg');
+    clonedOverlay.src =   'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.svg';
+    cellRect = cell.getBoundingClientRect();
+  //  clonedOverlay.pointer-events: none;
+    clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
+    clonedOverlay.style.top = cellRect.top + cellRect.height/2; // The x-coordinate of the cell's left edge, relative to the viewport
+    clonedOverlay.style.width =  cellRect.width;
+    clonedOverlay.style.height =  cellRect.height;
+    document.body.appendChild(clonedOverlay);
+    //cell.appendChild(clonedOverlay);
+    clonedOverlay.style.display = "block"; // Change from 'none' to 'block' to show the image
+
+        }
+      }
+    }
+
+         setTimeout(() => {
+        showOverlay();
+    }, 6000);
+  }
+
+
+
+   
+  table.addEventListener('click', function(event) {
+  // Check if the clicked element is a table cell (td or th)
+  if (event.target.tagName === 'TD' || event.target.tagName === 'TH') {
+    console.log('Cell clicked:', event.target.textContent);
+    console.log('selectedQ:', selectedQ);
+
+    if( grid[selectedQ] == event.target.textContent.split(':',1) ){
+    event.target.style.color = '#eeeeee';
+    event.target.style.backgroundColor = '#eeeeee';
+    selected[grid[selectedQ]]=2;
+    answerCount++;
+
+
+    var overlay = document.getElementById("overlayImage");
+    const clonedOverlay = overlay.cloneNode(true);
+
+    console.log('overlayImage src:', clonedOverlay.src);
+    console.log('selected cell left:', event.target.style.left);
+    clonedOverlay.src="https://cbeauty.github.io/FlashLearning/smash.svg";
+
+    const cellRect = event.target.getBoundingClientRect();
+    clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
+    clonedOverlay.style.top = cellRect.top + cellRect.height/2; // The x-coordinate of the cell's left edge, relative to the viewport
+    document.body.appendChild(clonedOverlay);
+    clonedOverlay.style.display = "block"; // Change from 'none' to 'block' to show the image
+
+    }
+    if( answerCount < GCols*GRows){
+       setTimeout(() => {
+        showOverlay();
+    }, 1000);
+    
+    }
+    else{
+    
+              setTimeout(() => {
+        returnToMenu();
+    }, 1000);
+   
+
+    }
+    // Add your desired logic here
+  }
+});
+
+
+  // Call the function to create the table
+    document.addEventListener('DOMContentLoaded', () => {
+    const queryString = window.location.search; // Example: "?name=John&age=30"
+    const params = new URLSearchParams(queryString);
+
+    if( params.has('rows')){
+      GRows = params.get('rows');
+    }
+    if( params.has('cols')){
+      GCols = params.get('cols');
+    }
+   if( params.has('subject')){
+      GSubject = params.get('subject');
+    }
+ 
+    loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'questions.txt').then(dataArray => {
+    if (dataArray.length > 0) {
+      questions = dataArray;
+    } else {
+        document.getElementById('item-list').textContent = 'No data found or error loading questions file.';
+    }
+    loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'topics.txt').then(dataArray => {
+    if (dataArray.length > 0) {
+      topics = dataArray;
+    
+    } else {
+        document.getElementById('item-list').textContent = 'No data found or error loading topic file.';
+    }
+    // Main execution
+    loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'answers.txt').then(dataArray => {
+    if (dataArray.length > 0) {
+      answers = dataArray;
+      createFixedTable('table-container', GRows, GCols); // displayArrayInHtml(dataArray, 'item-list');
+    } else {
+        document.getElementById('item-list').textContent = 'No data found or error loading answers file.';
+    }
+});
+
+
+
+  //  answers =  loadTextFile("https://cbeauty.github.io/FlashLearning/answers.txt");
+   // setTimeout(() => {
+   //     createFixedTable('table-container', GRows, GCols); // 
+    //}, 6000);
+    
+  });
+})});
+</script>
