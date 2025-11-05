@@ -1,69 +1,70 @@
-A: +1 (positive).
-A: -1 (negative).
-A: 0 (neutral).
-A: Nucleus.
-A: Number of protons in an atom.
-A: Mass number - atomic number.
-A: Atoms with same protons, different neutrons.
-A: Electrostatic attraction between ions.
-A: Shared pair of electrons.
-A: 18.0 [H=1, O=16]
-A: Tightly packed in fixed positions.
-A: Boiling (or evaporation).
-A: Condensation.
-A: Filtration.
-A: Evaporation (or crystallisation).
-A: Separating funnel.
-A: Separating mixtures of soluble substances (e.g., inks).
-A: Gain kinetic energy, move faster, spread out.
-A: Contains only one type of compound or element.
-A: Contains two or more different substances.
-A: A substance that produces H+ ions in solution.
-A: A substance that accepts H+ ions.
-A: A soluble base that produces OH- ions.
-Salt and water.
-Salt and hydrogen gas.
-pH 7.
-Oxidation (loss of electrons) occurs here.
-Reduction (gain of electrons) occurs here.
-Ions.
-Copper metal.
-Electrolysis.
-Reduction with carbon.
-Aluminium (or sodium, potassium, calcium).
-Reaction that can go both forwards and backwards.
-Forward and reverse reactions occur at same rate.
-Rock containing enough metal for extraction.
-Iron oxide (Fe2O3).
-Carbon monoxide (CO).
-Shifts to side with fewer gas molecules.
-By atomic number.
-Same number of outer shell electrons.
-Alkali metals.
-Halogens.
-Noble gases.
-Increases (more reactive).
-Decreases (less reactive).
-No, they are very unreactive.
-Lithium hydroxide and hydrogen gas.
-Potassium chloride and bromine (displacement reaction).
-Temperature (or concentration, surface area, catalyst, pressure).
-Speeds up reaction without being used up.
-Particles must collide with sufficient energy.
-Releases energy (usually heat) to surroundings.
-Takes in energy (usually heat) from surroundings.
-Combustion (or neutralisation, respiration).
-Photosynthesis (or thermal decomposition).
-Minimum energy needed for a reaction to start.
-Lowers it.
-g/s (grams per second) or cm³/s.
-A finite resource, mixture of hydrocarbons.
-Fractional distillation.
-Carbon dioxide and water.
-Carbon monoxide (toxic gas) or soot.
-Sulfur dioxide.
-Carbon dioxide (or methane, water vapour).
-Increased significantly due to early life.
-Volcanic activity.
-Shorter alkanes and alkenes.
-Fossil fuels (or nuclear, renewables).
++1 (positive).		
+-1 (negative).		
+0 (neutral).		
+Nucleus.		
+Number of protons in an atom.		
+Mass number - atomic number.		
+Atoms with same protons, different neutrons.		
+Electrostatic attraction between ions.		
+Shared pair of electrons.		
+18.0 [H=1, O=16]		
+Tightly packed in fixed positions.		
+Boiling (or evaporation).		
+Condensation.		
+Filtration.		
+Evaporation (or crystallisation).		
+Separating funnel.		
+Separating mixtures of soluble substances (e.g., inks).		
+Gain kinetic energy, move faster, spread out.		
+Contains only one type of compound or element.		
+Contains two or more different substances.		
+A substance that produces H+ ions in solution.		
+A substance that accepts H+ ions.		
+A soluble base that produces OH- ions.		
+Salt and water.		
+Salt and hydrogen gas.		
+pH 7.		
+Oxidation (loss of electrons) occurs here.		
+Reduction (gain of electrons) occurs here.		
+Ions.		
+Copper metal.		
+Electrolysis.		
+Reduction with carbon.		
+Aluminium (or sodium, potassium, calcium).		
+Reaction that can go both forwards and backwards.		
+Forward and reverse reactions occur at same rate.		
+Rock containing enough metal for extraction.		
+Iron oxide (Fe2O3).		
+Carbon monoxide (CO).		
+(two half arrows).		
+Shifts to side with fewer gas molecules.		
+By atomic number.		
+Same number of outer shell electrons.		
+Alkali metals.		
+Halogens.		
+Noble gases.		
+Increases (more reactive).		
+Decreases (less reactive).		
+No, they are very unreactive.		
+Lithium hydroxide and hydrogen gas.		
+Potassium chloride and bromine (displacement reaction).		
+Temperature (or concentration, surface area, catalyst, pressure).		
+Speeds up reaction without being used up.		
+Particles must collide with sufficient energy.		
+Releases energy (usually heat) to surroundings.		
+Takes in energy (usually heat) from surroundings.		
+Combustion (or neutralisation, respiration).		
+Photosynthesis (or thermal decomposition).		
+Minimum energy needed for a reaction to start.		
+Lowers it.		
+g/s (grams per second) or cm³/s.		
+A finite resource, mixture of hydrocarbons.		
+Fractional distillation.		
+Carbon dioxide and water.		
+Carbon monoxide (toxic gas) or soot.		
+Sulfur dioxide.		
+Carbon dioxide (or methane, water vapour).		
+Increased significantly due to early life.		
+Volcanic activity.		
+Shorter alkanes and alkenes.		
+Fossil fuels (or nuclear, renewables).		
