@@ -196,7 +196,7 @@ function showOverlay() {
     
     setTimeout(() => {
             returnToMenu();
-    }, 1000);  
+    }, 4000);  
   
 
     }
@@ -206,8 +206,10 @@ function showOverlay() {
 
   function returnToMenu() {
 
-    const timenow = new Date();
-    const newPageUrl = 'menu.html?correctanswers=${encodeURIComponent(GRows*GCols)}&time=${encodeURIComponent(timenow- timerStarted)/1000.0)}';
+    const timenow = new Date()-4000;
+    const timeparam = timenow- timerStarted/1000.0;
+    const scoreparam = GRows*GCols;
+    const newPageUrl = 'menu.html?correctanswers=${encodeURIComponent(scoreparam)}&time=${encodeURIComponent(timeparam)}';
 
     
     // Redirect to the new page
