@@ -42,7 +42,7 @@ function showOverlay() {
 
 	  console.log('showOverlay: topic index:', Math.trunc(grid[selectedQ] /topics.length));
     newDiv.style.opacity = "0";
-    newDiv.innerHTML = '<center><h2>'+ topics[Math.trunc(grid[selectedQ] /topics.length)] +'</h2><p>'+ divContent +'</p></center>';
+    newDiv.innerHTML = '<center><h2>'+ topics[Math.trunc(grid[selectedQ] /topics.length)] +'</h2><p style="font-size: 48px;">'+ divContent +'</p></center>';
     document.body.appendChild(newDiv); // Appending to the body
     if(timerStarted==0){
       timerStarted= new Date();
@@ -124,6 +124,7 @@ function showOverlay() {
 
           cell.textContent = celcontent;
           cell.style.textAlign = "center"; 
+          cell.style.fontSize = "18";
           row.appendChild(cell);
       
 
