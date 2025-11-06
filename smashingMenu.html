@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="style.css">
+
+
 <html lang="en">
 <div id="SwipeMe"></div>
 <head>
@@ -35,14 +37,14 @@
     </style>
 
     <script src="functions.js"></script>
-    <script type="text/javascript" src="node_modules/hammerjs/hammer.min.js"></script>
     <Script>
+
 
     let subjects = [];
     let GCorrectanswers = 0;
     let GCompletionTime = 0;
 
-
+/*
 
     document.addEventListener('DOMContentLoaded', () => {
 
@@ -96,6 +98,7 @@
 
     });
 
+*/
 
     function handleSubmit(event) {
     event.preventDefault(); // Prevent default form submission
@@ -209,14 +212,70 @@ function toggleFade() {
 
   isFadingIn = !isFadingIn;
 }
-    const hammerTime = new Hammer(document.body);
+     
+const swipeElement = document.body;
+let startX = 0;
+let startY = 0;
+let isDragging = false;
 
-    hammerTime.on('swipeleft', (event) => {
-        window.location.href = "menu.html"
-        })
-    hammerTime.on('swiperight', (event) => {
-        window.location.href = "menu.html"
-        })
+swipeElement.addEventListener('mousedown', (e) => {
+    startX = e.pageX;
+    startY = e.pageY;
+    isDragging = true;
+    swipeElement.style.cursor = 'grabbing'; // Optional: change cursor
+});
+
+document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    const deltaX = e.pageX - startX;
+    const deltaY = e.pageY - startY;
+
+    // Perform actions based on mouse movement (e.g., translate an element)
+    // For example: swipeElement.style.transform = `translateX(${deltaX}px)`;
+});
+
+document.addEventListener('mouseup', (e) => {
+    if (!isDragging) return;
+
+    isDragging = false;
+    swipeElement.style.cursor = 'auto'; // Optional: reset cursor
+
+    const endX = e.pageX;
+    const endY = e.pageY;
+
+    const swipeDistanceX = endX - startX;
+    const swipeDistanceY = endY - startY;
+
+    // Define a threshold for a valid swipe
+    const swipeThreshold = 50; 
+
+    if (Math.abs(swipeDistanceX) > swipeThreshold || Math.abs(swipeDistanceY) > swipeThreshold) {
+        if (Math.abs(swipeDistanceX) > Math.abs(swipeDistanceY)) {
+            // Horizontal swipe
+            if (swipeDistanceX > 0) {
+                console.log('Swiped Right!');
+                 window.location.href = "menu.html"
+            } else {
+                console.log('Swiped Left!');
+                 window.location.href = "menu.html"
+            }
+        } else {
+            // Vertical swipe
+            if (swipeDistanceY > 0) {
+                console.log('Swiped Down!');
+                // Trigger down swipe action
+            } else {
+                console.log('Swiped Up!');
+                // Trigger up swipe action
+            }
+        }
+    }
+    
+    // Reset element position if necessary
+    // swipeElement.style.transform = ''; 
+});
+
 
 
     newDiv= document.createElement('div');
