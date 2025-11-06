@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
+
+
+<html lang="en">
+<div id="SwipeMe"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Learning</title>
+    <style>
+
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+            margin: 0;
+            background-color: #f0f0f0; /* Optional: for better visual contrast */
+        }
+        table {
+            border-collapse: collapse;
+            border: none;
+        }
+        td {
+            border: none;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .select-wrapper {
+            position: relative;
+            display: inline-block;
+            min-width: 200px;
+         }
+    </style>
+
+    <script src="functions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  
+    <Script>
+
+
+    let subjects = [];
+    let GCorrectanswers = 0;
+    let GCompletionTime = 0;
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const queryString = window.location.search; // Example: "?name=John&age=30"
+        const params = new URLSearchParams(queryString);
+
+        if( params.has('time')){
+        GCompletionTime = params.get('time');
+        }
+        if( params.has('correctanswers')){
+        GCorrectanswers = params.get('correctanswers');
+        }
+
+        if(GCompletionTime > 0){
+
+            let congratsCell = document.getElementById('congrats');
+            congratsCell.textContent = "Congratulations";
+            congratsCell.style.fontSize = "36px";
+
+
+            let scoreCell = document.getElementById('score');
+            scoreCell.textContent = "Your correctly answered " + GCorrectanswers + " in " + GCompletionTime + " seconds."
+        }
+
+        loadTextFile('https://cbeauty.github.io/FlashLearning/FirstWordsubjects.txt').then(dataArray => {
+        if (dataArray.length > 0) {
+        
+        
+             subjects = dataArray;
+
+             const mySelect = document.getElementById('TestOptions');
+       
+            let i = 0;
+            subjects.forEach(item => {
+            const option = document.createElement('option');
+            option.value = subjects[i];
+            option.textContent = subjects[i]
+            mySelect.className = "select-wrapper"
+            mySelect.appendChild(option);
+
+            i++;
+            });
+
+
+        } else {
+            document.getElementById('item-list').textContent = 'No data found or error loading questions file.';
+        }
+
+
+        });
+
+    });
+
+
+
+    function handleSubmit(event) {
+    event.preventDefault(); // Prevent default form submission
+
+  
+    
+    // Get form elements
+    const chosensubject = document.getElementById('TestOptions');
+    const selectedIndex = chosensubject.selectedIndex;
+    const selectedOption = chosensubject.options[selectedIndex];
+
+
+    let rows=3;
+    let cols=3;
+    let RadioLevelmedium = document.getElementById('medium');
+    // To access the first radio button in the group:
+    if(RadioLevelmedium.checked){
+        rows=4;
+        cols=4;
+    }    
+    var RadioLevelhard = document.getElementById('hard');
+    // To access the first radio button in the group:
+    if(RadioLevelhard.checked){
+        rows=5;
+        cols=5;
+    }
+    // Get values
+    //LEY subject = selectedOption.value;
+    const subject = "FirstWord"; //temporAry hardcoded
+    // Construct URL with parameters
+    const newPageUrl = 'smashing.html?subject='+encodeURIComponent(subject)+'&rows='+encodeURIComponent(rows)+'&cols='+encodeURIComponent(rows);
+
+    // Redirect to the new page
+    window.location.href = newPageUrl;
+
+    return false; // Prevent further submission
+}
+    </Script>
+</head>
+<body id="pagebody">
+
+    <form  onsubmit="return handleSubmit(event);">
+            <table>
+            <tr>
+                <td id="congrats">&nbsp;</td>
+            </tr>
+            <tr>
+                <td id="score">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="font-size: 36px; color: rgb(38, 0, 255);">First Words Second Language</td>
+            </tr>
+            <tr>
+                <td><i>Expand your Mind</i></td>
+            </tr>
+            <tr>
+                <td>Choose a language:</td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="TestOptions">
+                    
+                    </select>
+                </td>
+            </tr>
+
+            <tr><td>
+            <fieldset id="levels">
+                <legend>Select your difficulty level:</legend>
+
+                <div>
+                    <input type="radio" id="easy" name="fav_color" value=3 checked=true >
+                    <label for="red">Easy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="medium" name="fav_color" value=4>
+                    <label for="blue">Medium</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="hard" name="fav_color" value=5>
+                    <label for="green">Hard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                </div>
+                
+            
+            </fieldset>
+            </td></tr>
+            <tr><td>
+                <div>
+                    <button type="submit">Start Game</button>
+                </div>
+            </td></tr>
+            <tr><td><img id="fadingImage" src="swipe.svg" alt="Fading image"></td></tr>
+        </table>
+    </form>
+
+</body>
+<script>
+     
+    var myElement = document.body;
+    var hammertime = new Hammer(myElement);
+
+    hammertime.on('swipeleft', function(ev) {
+        console.log('Swiped left!', ev);
+        document.location.href = "smashingMenu.html";
+    });
+
+    hammertime.on('swiperight', function(ev) {
+        console.log('Swiped right!', ev);
+        document.location.href = "menu.html";
+    });
+
+</script>
+</html>
