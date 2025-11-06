@@ -92,7 +92,14 @@ function showOverlay() {
     const timenow = new Date();
     const timeparam = ((timenow- timerStarted)/1000.0)-1; 
     const scoreparam = GRows*GCols;
-    const newPageUrl = 'smashingMenu.html?correctanswers='+encodeURIComponent(scoreparam)+'&time='+encodeURIComponent(timeparam);
+    let newPageUrl = 'menu.html?correctanswers='+encodeURIComponent(scoreparam)+'&time='+encodeURIComponent(timeparam);
+        if(GSubject ==='FirstWord'){
+      newPageUrl = 'fwslMenu.html?correctanswers='+encodeURIComponent(scoreparam)+'&time='+encodeURIComponent(timeparam);
+    }
+    if(GSubject ==='Smashing'){
+       newPageUrl = 'smashingMenu.html?correctanswers='+encodeURIComponent(scoreparam)+'&time='+encodeURIComponent(timeparam);
+    }
+   
 
     
     // Redirect to the new page
@@ -241,7 +248,17 @@ function showOverlay() {
 
     console.log('overlayImage src:', clonedOverlay.src);
     console.log('selected cell left:', event.target.style.left);
-    clonedOverlay.src="https://cbeauty.github.io/FlashLearning/smash.svg";
+    if(GSubject ==='FirstWord'){
+      clonedOverlay.src="https://cbeauty.github.io/FlashLearning/3legs.jpeg";
+    }
+    else if(GSubject ==='Smashing'){
+      clonedOverlay.src="https://cbeauty.github.io/FlashLearning/smash.svg";
+    }
+    else{
+       clonedOverlay.src="https://cbeauty.github.io/FlashLearning/tick.svg";
+    }
+    
+    
 
     const cellRect = event.target.getBoundingClientRect();
     clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
