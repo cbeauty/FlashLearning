@@ -215,7 +215,18 @@ function toggleFade() {
 }
      
 
+    var myElement = document.body;
+    var hammertime = new Hammer(myElement);
 
+    hammertime.on('swipeleft', function(ev) {
+        console.log('Swiped left!', ev);
+        document.location.href = "https://cbeauty.github.io/FlashLearning/Menu.html";
+    });
+
+    hammertime.on('swiperight', function(ev) {
+        console.log('Swiped right!', ev);
+        document.location.href = "https://cbeauty.github.io/FlashLearning/Menu.html";
+    });
 
     newDiv= document.createElement('div');
     newDiv.id = 'dynamicLayer';
