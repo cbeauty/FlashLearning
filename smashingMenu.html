@@ -220,12 +220,12 @@ function toggleFade() {
 
     hammertime.on('swipeleft', function(ev) {
         console.log('Swiped left!', ev);
-        document.location.href = "https://cbeauty.github.io/FlashLearning/Menu.html";
+        document.location.href = "https://cbeauty.github.io/FlashLearning/menu.html";
     });
 
     hammertime.on('swiperight', function(ev) {
         console.log('Swiped right!', ev);
-        document.location.href = "https://cbeauty.github.io/FlashLearning/Menu.html";
+        document.location.href = "https://cbeauty.github.io/FlashLearning/menu.html";
     });
 
     newDiv= document.createElement('div');
@@ -235,7 +235,7 @@ function toggleFade() {
 
 
     document.body.appendChild(newDiv); // Appending to the body
-    newDiv.innerHTML = '<h1>&lt;&nbsp;&nbsp;&nbsp;Swipe Me!&nbsp;&nbsp;&nbsp;&gt;</h1>';
+    newDiv.innerHTML = '<h2>&lt;&nbsp;&nbsp;&nbsp;Swipe Me!&nbsp;&nbsp;&nbsp;&gt;</h2>';
  
 
             // Set position to absolute

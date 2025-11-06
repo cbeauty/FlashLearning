@@ -30,6 +30,7 @@
             min-width: 200px;
          }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script src="functions.js"></script>
        
     <Script>
@@ -190,69 +191,19 @@
 
 </body>
 <script>
-/*
-const swipeElement = document.body;
-let startX = 0;
-let startY = 0;
-let isDragging = false;
 
-swipeElement.addEventListener('mousedown', (e) => {
-    startX = e.pageX;
-    startY = e.pageY;
-    isDragging = true;
-    swipeElement.style.cursor = 'grabbing'; // Optional: change cursor
-});
+    var myElement = document.body;
+    var hammertime = new Hammer(myElement);
 
-document.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
+    hammertime.on('swipeleft', function(ev) {
+        console.log('Swiped left!', ev);
+        document.location.href = "https://cbeauty.github.io/FlashLearning/menu.html";
+    });
 
-    const deltaX = e.pageX - startX;
-    const deltaY = e.pageY - startY;
-
-    // Perform actions based on mouse movement (e.g., translate an element)
-    // For example: swipeElement.style.transform = `translateX(${deltaX}px)`;
-});
-
-document.addEventListener('mouseup', (e) => {
-    if (!isDragging) return;
-
-    isDragging = false;
-    swipeElement.style.cursor = 'auto'; // Optional: reset cursor
-
-    const endX = e.pageX;
-    const endY = e.pageY;
-
-    const swipeDistanceX = endX - startX;
-    const swipeDistanceY = endY - startY;
-
-    // Define a threshold for a valid swipe
-    const swipeThreshold = 50; 
-
-    if (Math.abs(swipeDistanceX) > swipeThreshold || Math.abs(swipeDistanceY) > swipeThreshold) {
-        if (Math.abs(swipeDistanceX) > Math.abs(swipeDistanceY)) {
-            // Horizontal swipe
-            if (swipeDistanceX > 0) {
-                console.log('Swiped Right!');
-                 window.location.href = "smashingMenu.html"
-            } else {
-                console.log('Swiped Left!');
-                 window.location.href = "smashingMenu.html"
-            }
-        } else {
-            // Vertical swipe
-            if (swipeDistanceY > 0) {
-                console.log('Swiped Down!');
-                // Trigger down swipe action
-            } else {
-                console.log('Swiped Up!');
-                // Trigger up swipe action
-            }
-        }
-    }
-    
-    // Reset element position if necessary
-    // swipeElement.style.transform = ''; 
-});
+    hammertime.on('swiperight', function(ev) {
+        console.log('Swiped right!', ev);
+        document.location.href = "https://cbeauty.github.io/FlashLearning/menu.html";
+    });
 
 
     function toggleFade() {
@@ -278,7 +229,7 @@ document.addEventListener('mouseup', (e) => {
     
 
     document.body.appendChild(newDiv); // Appending to the body
-    newDiv.innerHTML = '<h1>&lt;&nbsp;&nbsp;&nbsp;Swipe Me!&nbsp;&nbsp;&nbsp;&gt;</h1>';
+    newDiv.innerHTML = '<h2>&lt;&nbsp;&nbsp;&nbsp;Swipe Me!&nbsp;&nbsp;&nbsp;&gt;</h2>';
             // Set position to absolute
     newDiv.style.position = 'absolute';
 
@@ -297,7 +248,7 @@ document.addEventListener('mouseup', (e) => {
     // Set interval to toggle fade every few seconds
     setInterval(toggleFade, 2000); // Adjust the duration (in milliseconds) as needed
 
-*/
+
 
 </script>
 </html>
