@@ -5,7 +5,28 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function fadeOut(element, duration) {
+ // const element = document.getElementById(elementId);
+  if (!element) return;
 
+  let opacity = 1;
+  element.style.opacity = opacity;
+  element.style.display = 'block'; // Ensure the element is visible before fading in
+
+  const interval = 10; // Milliseconds between opacity increments
+  const increment = interval / duration; // How much to increase opacity each interval
+
+  const fadeEffect = setInterval(() => {
+    if (opacity > 0) {
+      opacity -= increment;
+      element.style.opacity = opacity;
+    } else {
+      clearInterval(fadeEffect); // Stop the interval when fully faded in
+    }
+  }, interval);
+}
+
+ 
 function fadeIn(element, duration) {
  // const element = document.getElementById(elementId);
   if (!element) return;

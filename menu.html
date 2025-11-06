@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered Table with Combobox</title>
+    <title>SMASHING</title>
     <style>
         body {
             display: flex;
@@ -30,6 +31,7 @@
          }
     </style>
     <script src="functions.js"></script>
+        <script type="text/javascript" src="node_modules/hammerjs/hammer.min.js"></script>
     <Script>
 
     let subjects = [];
@@ -187,4 +189,55 @@
     </form>
 
 </body>
+<script>
+    function toggleFade() {
+    if (isFadingIn) {
+        newDiv.classList.remove('fade-out');
+        newDiv.classList.add('fade-in');
+    } else {
+        newDiv.classList.remove('fade-in');
+        newDiv.classList.add('fade-out');
+    }
+
+    isFadingIn = !isFadingIn;
+    }
+    const hammerTime = new Hammer(document.body);
+
+    hammerTime.on('swipeleft', (event) => {
+        window.location.href = "SmashingMenu.html"
+        })
+    hammerTime.on('swiperight', (event) => {
+        window.location.href = "SmashingMenu.html"
+        })
+
+    newDiv= document.createElement('div');
+    newDiv.id = 'dynamicLayer';
+    newDiv.className = 'fadingDiv';
+    newDiv.style.color = "#bbbbbb";
+
+    
+
+    document.body.appendChild(newDiv); // Appending to the body
+    newDiv.innerHTML = '<h1>&lt;&nbsp;&nbsp;&nbsp;Swipe Me!&nbsp;&nbsp;&nbsp;&gt;</h1>';
+            // Set position to absolute
+    newDiv.style.position = 'absolute';
+
+    // Set new top and left values
+    newDiv.style.left = "44%";
+    newDiv.style.top = '80%';
+  
+ 
+    let isFadingIn = true;
+
+
+
+    // Initial fade-in
+    newDiv.classList.add('fade-in');
+
+    // Set interval to toggle fade every few seconds
+    setInterval(toggleFade, 2000); // Adjust the duration (in milliseconds) as needed
+
+
+
+</script>
 </html>

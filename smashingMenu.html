@@ -1,10 +1,14 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
 <html lang="en">
+<div id="SwipeMe"></div>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered Table with Combobox</title>
+    <title>Flash Learning</title>
     <style>
+
+
         body {
             display: flex;
             justify-content: center;
@@ -29,12 +33,16 @@
             min-width: 200px;
          }
     </style>
+
     <script src="functions.js"></script>
+    <script type="text/javascript" src="node_modules/hammerjs/hammer.min.js"></script>
     <Script>
 
     let subjects = [];
     let GCorrectanswers = 0;
     let GCompletionTime = 0;
+
+
 
     document.addEventListener('DOMContentLoaded', () => {
 
@@ -127,7 +135,8 @@
 }
     </Script>
 </head>
-<body>
+<body id="pagebody">
+
     <form  onsubmit="return handleSubmit(event);">
             <table>
             <tr>
@@ -140,13 +149,13 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td style="font-size: 36px; color: red;">Flash Learning</td>
+                <td style="font-size: 36px; color: rgb(0, 255, 42);">S.M.A.S.H.I.N.G</td>
             </tr>
             <tr>
-                <td><i>Learning through play</i></td>
+                <td><i>Living Younger Longer</i></td>
             </tr>
             <tr>
-                <td>Choose your revision topic:</td>
+                <td>Choose your game of life:</td>
             </tr>
             <tr>
                 <td>
@@ -187,4 +196,59 @@
     </form>
 
 </body>
+<script>
+
+function toggleFade() {
+  if (isFadingIn) {
+    newDiv.classList.remove('fade-out');
+    newDiv.classList.add('fade-in');
+  } else {
+    newDiv.classList.remove('fade-in');
+    newDiv.classList.add('fade-out');
+  }
+
+  isFadingIn = !isFadingIn;
+}
+    const hammerTime = new Hammer(document.body);
+
+    hammerTime.on('swipeleft', (event) => {
+        window.location.href = "menu.html"
+        })
+    hammerTime.on('swiperight', (event) => {
+        window.location.href = "menu.html"
+        })
+
+
+    newDiv= document.createElement('div');
+    newDiv.id = 'dynamicLayer';
+    newDiv.className = 'fadingDiv';
+    newDiv.style.color = "#bbbbbb";
+
+
+    document.body.appendChild(newDiv); // Appending to the body
+    newDiv.innerHTML = '<h1>&lt;&nbsp;&nbsp;&nbsp;Swipe Me!&nbsp;&nbsp;&nbsp;&gt;</h1>';
+ 
+
+            // Set position to absolute
+    newDiv.style.position = 'absolute';
+
+    // Set new top and left values
+    newDiv.style.left = '44%';
+    newDiv.style.top = '80%';
+  
+ 
+    let isFadingIn = true;
+
+
+
+    // Initial fade-in
+    newDiv.classList.add('fade-in');
+
+    // Set interval to toggle fade every few seconds
+    setInterval(toggleFade, 2000); // Adjust the duration (in milliseconds) as needed
+
+
+
+
+</script>
 </html>

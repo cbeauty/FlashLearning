@@ -1,4 +1,4 @@
- <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 <div id="table-container"></div>
 <div class="image-container">
     <!-- The main background image is set via CSS on the container -->
@@ -93,7 +93,7 @@ function showOverlay() {
     const timenow = new Date();
     const timeparam = ((timenow- timerStarted)/1000.0)-1; 
     const scoreparam = GRows*GCols;
-    const newPageUrl = 'menu.html?correctanswers='+encodeURIComponent(scoreparam)+'&time='+encodeURIComponent(timeparam);
+    const newPageUrl = 'smashingMenu.html?correctanswers='+encodeURIComponent(scoreparam)+'&time='+encodeURIComponent(timeparam);
 
     
     // Redirect to the new page

@@ -1,12 +1,43 @@
 
-image-container {
-    position: relative; /* Crucial: sets the positioning context for absolute children */
-    width: 600px;
-    height: 400px;
-    background-image: url('cloud.png'); /* The background image */
-    background-size: cover;
-    background-position: center;
-}
+        image-container {
+        position: relative; /* Crucial: sets the positioning context for absolute children */
+        width: 600px;
+        height: 400px;
+        background-image: url('cloud.png'); /* The background image */
+        background-size: cover;
+        background-position: center;
+        }
+
+        #fadingDiv {
+        position: absolute; /* Positions this image relative to the container */   
+        opacity: 0; /* Start hidden */
+        transition: opacity 1s ease-in-out; /* Smooth transition for opacity changes */
+        pointer-events: none;
+        background-color: transparent;
+        top: 5%;
+        left: 50%;
+        text-align: center;
+        background-position: center;
+        font-size:  36;
+      }   
+        
+
+        .fade-in {
+        opacity: 1;
+        }
+
+      .h1{
+        text-align: center;
+       }   
+
+        .fade-out {
+        opacity: 0;
+        }
+
+    .center-text {
+      text-align: center;
+    }   
+
 
     .overlay {
         position: fixed;
