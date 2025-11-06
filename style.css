@@ -8,6 +8,22 @@
         background-position: center;
         }
 
+        #fadingImage {
+          animation: fadeInOut 3s linear infinite; /* 3s duration, linear timing, infinite loop */
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
         #fadingDiv {
         position: absolute; /* Positions this image relative to the container */   
         opacity: 0; /* Start hidden */

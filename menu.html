@@ -186,6 +186,7 @@
                     <button type="submit">Start Game</button>
                 </div>
             </td></tr>
+          <tr><td><img id="fadingImage" src="swipe.svg" alt="Fading image"></td></tr>
         </table>
     </form>
 
@@ -197,56 +198,13 @@
 
     hammertime.on('swipeleft', function(ev) {
         console.log('Swiped left!', ev);
-        document.location.href = "https://cbeauty.github.io/FlashLearning/menu.html";
+        document.location.href = "smashingMenu.html";
     });
 
     hammertime.on('swiperight', function(ev) {
         console.log('Swiped right!', ev);
-        document.location.href = "https://cbeauty.github.io/FlashLearning/menu.html";
+        document.location.href = "smashingMenu.html";
     });
-
-
-    function toggleFade() {
-    if (isFadingIn) {
-        newDiv.classList.remove('fade-out');
-        newDiv.classList.add('fade-in');
-    } else {
-        newDiv.classList.remove('fade-in');
-        newDiv.classList.add('fade-out');
-    }
-
-    isFadingIn = !isFadingIn;
-    }
-
-
-    
-
-    newDiv= document.createElement('div');
-    newDiv.id = 'dynamicLayer';
-    newDiv.className = 'fadingDiv';
-    newDiv.style.color = "#bbbbbb";
-
-    
-
-    document.body.appendChild(newDiv); // Appending to the body
-    newDiv.innerHTML = '<h2>&lt;&nbsp;&nbsp;&nbsp;Swipe Me!&nbsp;&nbsp;&nbsp;&gt;</h2>';
-            // Set position to absolute
-    newDiv.style.position = 'absolute';
-
-    // Set new top and left values
-    newDiv.style.left = "44%";
-    newDiv.style.top = '80%';
-  
- 
-    let isFadingIn = true;
-
-
-
-    // Initial fade-in
-    newDiv.classList.add('fade-in');
-
-    // Set interval to toggle fade every few seconds
-    setInterval(toggleFade, 2000); // Adjust the duration (in milliseconds) as needed
 
 
 
