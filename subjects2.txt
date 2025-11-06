@@ -1,5 +1,6 @@
-Biology,Pearson Exdexcel Combined Science - Biology
-Chemistry,Pearson Exdexcel Combined Science - Chemistry
-Physics,Pearson Exdexcel Combined Science - Physics
-Germany 1918-1945,Pearson Exdexcel History - Germany 1918-1945
-USA Civil Rights,Pearson Exdexcel History - American Civil Rights Movement 
+Biology,Pearson Edexcel GCSE Combined Science - Biology
+Chemistry,Pearson Edexcel GCSE Combined Science - Chemistry
+Physics,Pearson Edexcel GCSE Combined Science - Physics
+Germany 1918-1945,Pearson Edexcel GCSE History - Germany 1918-1945
+USA Civil Rights,Pearson Edexcel GCSE History - American Civil Rights Movement 
+
