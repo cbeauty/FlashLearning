@@ -45,8 +45,7 @@ function showOverlay() {
     const clonedOverlay = overlay.cloneNode(true);
     const parts = questions[grid[selectedQ]].split('#');
     console.log('cell id:',cell);
-    console.log('parts array:',parts);
-    console.log('image src:', 'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.png');
+    console.log('image src:', 'https://cbeauty.github.io/FlashLearning/' + '.png');
     clonedOverlay.src =   'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.png';
     
     //clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
@@ -195,8 +194,13 @@ function showOverlay() {
     const parts = celcontent.split('#');
     console.log('cell id:',cell);
     console.log('parts array:',parts);
-    console.log('image src:', 'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.svg');
-    clonedOverlay.src =   'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.svg';
+
+    let suffix = '.svg';
+    if(GSubject ==='FirstWord'){
+      suffix = '.png';
+    }
+    console.log('image src:', 'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + suffix);
+    clonedOverlay.src =   'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + suffix;
     cellRect = cell.getBoundingClientRect();
   //  clonedOverlay.pointer-events: none;
     clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
@@ -242,6 +246,8 @@ function showOverlay() {
     const cellRect = event.target.getBoundingClientRect();
     clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
     clonedOverlay.style.top = cellRect.top + cellRect.height/2; // The x-coordinate of the cell's left edge, relative to the viewport
+    clonedOverlay.style.width = cellRect.width;
+    clonedOverlay.style.height = cellRect.height;
     document.body.appendChild(clonedOverlay);
     clonedOverlay.style.display = "block"; // Change from 'none' to 'block' to show the image
 

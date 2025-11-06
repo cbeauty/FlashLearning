@@ -62,7 +62,7 @@
             scoreCell.textContent = "Your correctly answered " + GCorrectanswers + " in " + GCompletionTime + " seconds."
         }
 
-        loadTextFile('https://cbeauty.github.io/FlashLearning/subjects.txt').then(dataArray => {
+        loadTextFile('https://cbeauty.github.io/FlashLearning/subjects2.txt').then(dataArray => {
         if (dataArray.length > 0) {
         
         
@@ -73,14 +73,15 @@
             let i = 0;
             subjects.forEach(item => {
             const option = document.createElement('option');
-            option.value = subjects[i];
-            option.textContent = subjects[i]
+            option.value = subjects[i].split(',')[0];
+            option.textContent = subjects[i].split(',')[0];
             mySelect.className = "select-wrapper"
             mySelect.appendChild(option);
 
             i++;
             });
 
+            handleComboboxChange(subjects[0].split(',')[0]);
 
         } else {
             document.getElementById('item-list').textContent = 'No data found or error loading questions file.';
@@ -91,6 +92,24 @@
 
     });
 
+    
+        function handleComboboxChange(selectedValue) {
+        console.log("Selected value:", selectedValue);
+
+            let i = 0;
+            subjects.forEach(item => {
+            const option = document.createElement('option');
+            if(subjects[i].split(',')[0] == selectedValue){
+
+            let descSelected = document.getElementById('descSelected');
+            descSelected.textContent = subjects[i].split(',')[1];
+            }
+    
+            i++;
+      });
+     
+
+    };
 
     function handleSubmit(event) {
     event.preventDefault(); // Prevent default form submission
@@ -153,12 +172,14 @@
             </tr>
             <tr>
                 <td>
-                    <select id="TestOptions">
+                    <select id="TestOptions" onchange="handleComboboxChange(this.value)">
                     
                     </select>
                 </td>
             </tr>
-
+<tr><td id="descSelected">
+                &nbsp;
+</td></tr>
             <tr><td>
             <fieldset id="levels">
                 <legend>Select your difficulty level:</legend>
@@ -193,12 +214,13 @@
 </body>
 <script>
 
+
     var myElement = document.body;
     var hammertime = new Hammer(myElement);
 
     hammertime.on('swipeleft', function(ev) {
         console.log('Swiped left!', ev);
-        document.location.href = "smashingMenu.html";
+        document.location.href = "fwslMenu.html";
     });
 
     hammertime.on('swiperight', function(ev) {
