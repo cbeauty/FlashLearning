@@ -336,6 +336,8 @@ function showOverlay() {
     }
  });
     if(GSubject=="Smashing"){
+     console.log('ALERT!!!!');
+
       customAlert("Get ready to SMASH! Click on the cells that match the audio prompts. Good luck!");
           loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'audios.txt').then(dataArray => {
     if (dataArray.length > 0) {

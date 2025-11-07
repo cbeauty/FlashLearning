@@ -130,7 +130,7 @@
     const subject = selectedOption.value;
 
     // Construct URL with parameters
-    const newPageUrl = 'indexfl.html?subject='+encodeURIComponent(subject)+'&rows='+encodeURIComponent(rows)+'&cols='+encodeURIComponent(rows);
+    const newPageUrl = 'smashing.html?subject='+encodeURIComponent(subject)+'&rows='+encodeURIComponent(rows)+'&cols='+encodeURIComponent(rows);
 
     // Redirect to the new page
     window.location.href = newPageUrl;
@@ -213,7 +213,7 @@
 
     hammertime.on('swiperight', function(ev) {
         console.log('Swiped right!', ev);
-        document.location.href = "menu.html";
+        document.location.href = "fwslMenu.html";
     });
 
 </script>

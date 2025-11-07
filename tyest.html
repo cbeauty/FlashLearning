@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hello Page</title>
+    <style>
+        :root { --bg: #f6f8fa; --card: #fff; --accent: #0366d6; }
+        html,body { height:100%; margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:var(--bg); color:#111; }
+        .wrap { min-height:100%; display:flex; align-items:center; justify-content:center; padding:24px; }
+        .card { background:var(--card); padding:32px; border-radius:12px; box-shadow:0 8px 30px rgba(2,6,23,0.08); text-align:center; max-width:480px; width:100%; }
+        h1 { margin:0 0 8px; font-size:2rem; color:var(--accent); }
+        p { margin:0 0 16px; color:#333; }
+        button { background:var(--accent); color:#fff; border:0; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:1rem; }
+        button:active { transform:translateY(1px); }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <main class="card" role="main">
+            <h1>Hello, World!</h1>
+            <p>Welcome to your simple hello page.</p>
+            <button id="greetBtn" type="button">Say Hello</button>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('greetBtn').addEventListener('click', function () {
+            alert('Hello! 👋');
+        });
+    </script>
+</body>
+</html>
