@@ -53,7 +53,58 @@
     .center-text {
       text-align: center;
     }   
+#customAlertOverlay {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top of everything */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+}
 
+#customAlertBox {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Responsive width */
+    max-width: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+}
+
+#customAlertHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+#customAlertTitle {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#customAlertClose {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+#customAlertBody {
+    margin-bottom: 20px;
+}
+
+#customAlertFooter button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
 
     .overlay {
         position: fixed;

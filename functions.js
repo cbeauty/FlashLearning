@@ -63,3 +63,21 @@ async function loadTextFile(fileURL) {
         return [];
     }
 }
+
+function customAlert(message) {
+    const overlay = document.getElementById('customAlertOverlay');
+    const body = document.getElementById('customAlertBody');
+
+    // Set the message content
+    body.innerHTML = message;
+
+    // Display the alert
+    overlay.style.display = 'flex'; // Use 'flex' to center the box easily
+}
+
+function closeCustomAlert() {
+    const overlay = document.getElementById('customAlertOverlay');
+    
+    // Hide the alert
+    overlay.style.display = 'none';
+}
