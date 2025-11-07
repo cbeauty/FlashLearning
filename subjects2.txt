@@ -2,4 +2,3 @@ Biology,Pearson Exdexcel Combined Science - Biology
 Chemistry,Pearson Exdexcel Combined Science - Chemistry
 Physics,Pearson Exdexcel Combined Science - Physics
 History,Pearson Exdexcel History - Germany 1918-1945
-USA Civil Rights,Pearson Exdexcel History - American Civil Rights Movement 
