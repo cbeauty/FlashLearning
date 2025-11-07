@@ -310,6 +310,8 @@ function showOverlay() {
     const queryString = window.location.search; // Example: "?name=John&age=30"
     const params = new URLSearchParams(queryString);
 
+    console.log('Page parameters:', queryString);
+
     if( params.has('rows')){
       GRows = params.get('rows');
     }
@@ -326,6 +328,7 @@ function showOverlay() {
     } else {
         document.getElementById('item-list').textContent = 'No data found or error loading questions file.';
     }
+    console.log('Questions:', dataArray);
   });
     loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'topics.txt').then(dataArray => {
     if (dataArray.length > 0) {
@@ -334,19 +337,23 @@ function showOverlay() {
     } else {
         document.getElementById('item-list').textContent = 'No data found or error loading topic file.';
     }
- });
-    if(GSubject=="Smashing"){
-     console.log('ALERT!!!!');
+     console.log('Topics:', dataArray);
 
-      customAlert("Get ready to SMASH! Click on the cells that match the audio prompts. Good luck!");
-          loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'audios.txt').then(dataArray => {
-    if (dataArray.length > 0) {
-      audios = dataArray;
-    
-    } else {
-        document.getElementById('item-list').textContent = 'No data found or error loading topic file.';
-    }
  });
+    
+ if(GSubject=="Smashing"){
+      console.log('ALERT!!!!');
+      customAlert("Get ready to SMASH! Click on the cells that match the audio prompts. Good luck!");
+      loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'audios.txt').then(dataArray => {
+      if (dataArray.length > 0) {
+        audios = dataArray;
+      
+      } else {
+          document.getElementById('item-list').textContent = 'No data found or error loading topic file.';
+      }
+    });
+  }
+
     // Main execution
     loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'answers.txt').then(dataArray => {
     if (dataArray.length > 0) {
@@ -355,8 +362,11 @@ function showOverlay() {
     } else {
         document.getElementById('item-list').textContent = 'No data found or error loading answers file.';
     }
+
+        console.log('QAnswers:', dataArray);
 });
-    }
+
+ 
 
 
   //  answers =  loadTextFile("https://cbeauty.github.io/FlashLearning/answers.txt");
