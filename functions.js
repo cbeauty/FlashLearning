@@ -64,6 +64,39 @@ async function loadTextFile(fileURL) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const loadFileButton = document.getElementById('loadFileButton');
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+
+    loadFileButton.addEventListener('click', () => {
+        fileInput.click(); // Trigger the hidden file input click
+    });
+
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                const fileContents = e.target.result;
+                const listItem = document.createElement('div');
+                listItem.classList.add('list-item');
+                listItem.textContent = fileContents;
+                fileList.appendChild(listItem);
+            };
+
+            reader.onerror = (e) => {
+                console.error("Error reading file:", e.target.error);
+                alert("Error reading file. Please try again.");
+            };
+
+            reader.readAsText(file); // Read the file as text
+        }
+    });
+});
+
 function customAlert(message) {
     const overlay = document.getElementById('customAlertOverlay');
     const body = document.getElementById('customAlertBody');
