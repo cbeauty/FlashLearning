@@ -5,6 +5,20 @@
     <img src="" alt="Overlay Image" class="overlay-image" id="overlayImage">
    <img src="" alt="Grid Overlay Image" class="gridoverlay-image" id="gridoverlayImage">
 </div>
+<div id="customAlertOverlay">
+    <div id="customAlertBox">
+        <div id="customAlertHeader">
+            <span id="customAlertTitle">Alert</span>
+            <button id="customAlertClose" onclick="closeCustomAlert()">&times;</button>
+        </div>
+        <div id="customAlertBody">
+            <!-- Message goes here -->
+        </div>
+        <div id="customAlertFooter">
+            <button onclick="closeCustomAlert()">OK</button>
+        </div>
+    </div>
+</div>
 <script src="functions.js"></script>
 <script>
 
@@ -20,9 +34,19 @@ let grid = [];
 let answers = [];
 let questions = [];
 let topics = [];
-
+let audios = [];
 const table = document.getElementById('table-container'); // Assuming your table has an ID 'myTable'
 
+
+async function playAudioFromURL(url) {
+  const audio = new Audio(url);
+  try {
+    await audio.play();
+    console.log('Audio started playing.');
+  } catch (error) {
+    console.error('Error playing audio:', error);
+  }
+}
 
 function showOverlay() {
 
@@ -38,15 +62,19 @@ function showOverlay() {
 	  
 	  console.log('showOverlay: topic index:', Math.trunc(grid[selectedQ] /topics.length));
 
+     if(GSubject ==='Smashing'){
+      console.log("playAudioFromURL('https://cbeauty.github.io/FlashLearning/"+audios[grid[selectedQ]]+".wav");
+      playAudioFromURL('https://cbeauty.github.io/FlashLearning/'+audios[grid[selectedQ]]);
+    }
 
     if(questions[grid[selectedQ]].startsWith('#')){
+
 
     var overlay = document.getElementById("gridoverlayImage");
     const clonedOverlay = overlay.cloneNode(true);
     const parts = questions[grid[selectedQ]].split('#');
     console.log('cell id:',cell);
-    console.log('parts array:',parts);
-    console.log('image src:', 'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.png');
+    console.log('image src:', 'https://cbeauty.github.io/FlashLearning/' + '.png');
     clonedOverlay.src =   'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.png';
     
     //clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
@@ -93,7 +121,14 @@ function showOverlay() {
     const timenow = new Date();
     const timeparam = ((timenow- timerStarted)/1000.0)-1; 
     const scoreparam = GRows*GCols;
-    const newPageUrl = 'smashingMenu.html?correctanswers='+encodeURIComponent(scoreparam)+'&time='+encodeURIComponent(timeparam);
+    let newPageUrl = 'menu.html?correctanswers='+encodeURIComponent(scoreparam)+'&time='+encodeURIComponent(timeparam);
+        if(GSubject ==='FirstWord'){
+      newPageUrl = 'fwslMenu.html?correctanswers='+encodeURIComponent(scoreparam)+'&time='+encodeURIComponent(timeparam);
+    }
+    if(GSubject ==='Smashing'){
+       newPageUrl = 'smashingMenu.html?correctanswers='+encodeURIComponent(scoreparam)+'&time='+encodeURIComponent(timeparam);
+    }
+   
 
     
     // Redirect to the new page
@@ -152,27 +187,14 @@ function showOverlay() {
         const celcontent = grid[(i*cols)+ (j )] + ':' +answers[grid[(i*cols)+ (j )]];
         
         if(answers[grid[(i*cols)+ (j )]].startsWith('#')){
-
           cell.style.fontSize = "6";
-
-
         }
         else{
-
           cell.style.fontSize = "18";
         }
-          
-
-
-        
-
-          cell.textContent = celcontent;
-          cell.style.textAlign = "center"; 
-          
-          row.appendChild(cell);
-      
-
-        
+        cell.textContent = celcontent;
+        cell.style.textAlign = "center";  
+        row.appendChild(cell);    
         console.log('cell id:',cell.id);   
         
       }
@@ -195,8 +217,14 @@ function showOverlay() {
     const parts = celcontent.split('#');
     console.log('cell id:',cell);
     console.log('parts array:',parts);
-    console.log('image src:', 'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.svg');
-    clonedOverlay.src =   'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.svg';
+
+    let suffix = '.svg';
+    if(GSubject ==='FirstWord'){
+      suffix = '.png';
+    }
+
+    console.log('image src:', 'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + suffix);
+    clonedOverlay.src =   'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + suffix;
     cellRect = cell.getBoundingClientRect();
   //  clonedOverlay.pointer-events: none;
     clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
@@ -237,11 +265,23 @@ function showOverlay() {
 
     console.log('overlayImage src:', clonedOverlay.src);
     console.log('selected cell left:', event.target.style.left);
-    clonedOverlay.src="https://cbeauty.github.io/FlashLearning/smash.svg";
+    if(GSubject ==='FirstWord'){
+      clonedOverlay.src="https://cbeauty.github.io/FlashLearning/3legs.jpeg";
+    }
+    else if(GSubject ==='Smashing'){
+      clonedOverlay.src="https://cbeauty.github.io/FlashLearning/smash.svg";
+    }
+    else{
+       clonedOverlay.src="https://cbeauty.github.io/FlashLearning/tick.svg";
+    }
+    
+    
 
     const cellRect = event.target.getBoundingClientRect();
     clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
     clonedOverlay.style.top = cellRect.top + cellRect.height/2; // The x-coordinate of the cell's left edge, relative to the viewport
+    clonedOverlay.style.width = cellRect.width;
+    clonedOverlay.style.height = cellRect.height;
     document.body.appendChild(clonedOverlay);
     clonedOverlay.style.display = "block"; // Change from 'none' to 'block' to show the image
 
@@ -286,6 +326,7 @@ function showOverlay() {
     } else {
         document.getElementById('item-list').textContent = 'No data found or error loading questions file.';
     }
+  });
     loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'topics.txt').then(dataArray => {
     if (dataArray.length > 0) {
       topics = dataArray;
@@ -293,6 +334,17 @@ function showOverlay() {
     } else {
         document.getElementById('item-list').textContent = 'No data found or error loading topic file.';
     }
+ });
+    if(GSubject=="Smashing"){
+      customAlert("Get ready to SMASH! Click on the cells that match the audio prompts. Good luck!");
+          loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'audios.txt').then(dataArray => {
+    if (dataArray.length > 0) {
+      audios = dataArray;
+    
+    } else {
+        document.getElementById('item-list').textContent = 'No data found or error loading topic file.';
+    }
+ });
     // Main execution
     loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'answers.txt').then(dataArray => {
     if (dataArray.length > 0) {
@@ -302,7 +354,7 @@ function showOverlay() {
         document.getElementById('item-list').textContent = 'No data found or error loading answers file.';
     }
 });
-
+    }
 
 
   //  answers =  loadTextFile("https://cbeauty.github.io/FlashLearning/answers.txt");
@@ -311,5 +363,4 @@ function showOverlay() {
     //}, 6000);
     
   });
-})});
 </script>
