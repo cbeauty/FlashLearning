@@ -140,6 +140,8 @@
     z-index: 2; /* Ensures the overlay image is on top */
     display: none; /* Initially hides the image */
    /* pointer-events: none;*/
+       width: auto;
+    height: auto;
 
 }
 .overlay-image {
