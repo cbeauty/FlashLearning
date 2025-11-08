@@ -33,6 +33,7 @@
   let GRows = 5;
   let GCols = 5;
   let GSubject = "";
+  let GSource = "";
   let newDiv; //for overlays
   let answerCount = 0;
   let selectedQ = -1;
@@ -106,14 +107,14 @@
         "https://cbeauty.github.io/FlashLearning/" + parts[1].trim() + ".png";
 
       if (GSubject === "Smashing") {
-        clonedOverlay.style.aspectRatio = "1";
-        if (innerWidth < window.innerHeight) {
-          clonedOverlay.style.width = "100%";
-          clonedOverlay.style.height = "auto";
-        } else {
-          clonedOverlay.style.height = "100%";
-          clonedOverlay.style.width = "auto";
-        }
+      if (window.innerWidth < window.innerHeight) {
+        table.style.width = window.innerWidth;
+        table.style.height = window.innerWidth;
+      } else {
+        table.style.height = window.innerHeight;
+        table.style.width = window.innerHeight;
+      }
+      table.style.aspectRatio = "1";
       } else {
         clonedOverlay.style.width = "100%";
         clonedOverlay.style.height = "100%";
@@ -158,6 +159,8 @@
     const timenow = new Date();
     const timeparam = (timenow - timerStarted) / 1000.0 - 1;
     const scoreparam = GRows * GCols;
+    if(GSource != "TBW"){
+
     let newPageUrl =
       "menu.html?correctanswers=" +
       encodeURIComponent(scoreparam) +
@@ -177,9 +180,11 @@
         "&time=" +
         encodeURIComponent(timeparam);
     }
-
-    // Redirect to the new page
+        // Redirect to the new page
     window.location.href = newPageUrl;
+  }
+  else{}
+  window.parent.postMessage(scoreparam + ":"+timeparam, 'SmashingDraft.html'); 
   }
 
   window.addEventListener("orientationchange", function () {
@@ -356,6 +361,9 @@
     }
     if (params.has("subject")) {
       GSubject = params.get("subject");
+    }
+   if (params.has("source")) {
+      GSource = params.get("source");
     }
 
     loadTextFile(
