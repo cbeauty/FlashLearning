@@ -289,7 +289,9 @@ function showOverlay() {
   }
 
 
-
+window.addEventListener('orientationchange', function() {
+    window.location.reload();
+});
    
   table.addEventListener('click', function(event) {
   // Check if the clicked element is a table cell (td or th)
@@ -387,7 +389,7 @@ function showOverlay() {
     
  if(GSubject=="Smashing"){
       console.log('ALERT!!!!');
-      customAlert("Get ready to SMASH! Click on the cells that match the audio prompts. Good luck!");
+      customAlert("<h2>Get ready to SMASH! Click on the cells that match the audio prompts. Good luck!<h2>");
       loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'audios.txt').then(dataArray => {
       if (dataArray.length > 0) {
         audios = dataArray;
