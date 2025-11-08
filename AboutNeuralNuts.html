@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="style.css">
+
+
 <html lang="en">
+<div id="SwipeMe"></div>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMASHING</title>
+    <title>About Neural Nuts</title>
     <style>
+
+
         body {
             display: flex;
             justify-content: center;
@@ -30,14 +35,17 @@
             min-width: 200px;
          }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+
     <script src="functions.js"></script>
-       
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  
     <Script>
+
 
     let subjects = [];
     let GCorrectanswers = 0;
     let GCompletionTime = 0;
+
 
     document.addEventListener('DOMContentLoaded', () => {
 
@@ -62,7 +70,8 @@
             scoreCell.textContent = "Your correctly answered " + GCorrectanswers + " in " + GCompletionTime + " seconds."
         }
 
-        loadTextFile('https://cbeauty.github.io/FlashLearning/subjects2.txt').then(dataArray => {
+        /*
+        loadTextFile('https://cbeauty.github.io/FlashLearning/Smashingsubjects.txt').then(dataArray => {
         if (dataArray.length > 0) {
         
         
@@ -73,15 +82,14 @@
             let i = 0;
             subjects.forEach(item => {
             const option = document.createElement('option');
-            option.value = subjects[i].split(',')[0];
-            option.textContent = subjects[i].split(',')[0];
+            option.value = subjects[i];
+            option.textContent = subjects[i]
             mySelect.className = "select-wrapper"
             mySelect.appendChild(option);
 
             i++;
             });
 
-            handleComboboxChange(subjects[0].split(',')[0]);
 
         } else {
             document.getElementById('item-list').textContent = 'No data found or error loading questions file.';
@@ -89,39 +97,22 @@
 
 
         });
-
+*/
     });
 
-    
-        function handleComboboxChange(selectedValue) {
-        console.log("Selected value:", selectedValue);
 
-            let i = 0;
-            subjects.forEach(item => {
-            const option = document.createElement('option');
-            if(subjects[i].split(',')[0] == selectedValue){
-
-            let descSelected = document.getElementById('descSelected');
-            descSelected.textContent = subjects[i].split(',')[1];
-            }
-    
-            i++;
-      });
-     
-
-    };
 
     function handleSubmit(event) {
     event.preventDefault(); // Prevent default form submission
 
   
-    
+
     // Get form elements
     const chosensubject = document.getElementById('TestOptions');
     const selectedIndex = chosensubject.selectedIndex;
-    const selectedOption = chosensubject.options[selectedIndex];
+    const selectedOption = "Manx";chosensubject.options[selectedIndex];
 
-
+  /*  
     let rows=3;
     let cols=3;
     let RadioLevelmedium = document.getElementById('medium');
@@ -136,11 +127,12 @@
         rows=5;
         cols=5;
     }
+        */
     // Get values
-    const subject = selectedOption.value;
+    const subject = "AboutNN";//selectedOption.value;
 
     // Construct URL with parameters
-    const newPageUrl = 'indexfl.html?subject='+encodeURIComponent(subject)+'&rows='+encodeURIComponent(rows)+'&cols='+encodeURIComponent(rows);
+    const newPageUrl = 'smashing.html?subject='+encodeURIComponent(subject)+'&rows='+encodeURIComponent(rows)+'&cols='+encodeURIComponent(rows);
 
     // Redirect to the new page
     window.location.href = newPageUrl;
@@ -149,7 +141,8 @@
 }
     </Script>
 </head>
-<body>
+<body id="pagebody">
+
     <form  onsubmit="return handleSubmit(event);">
             <table>
             <tr>
@@ -162,24 +155,13 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td style="font-size: 36px; color: red;">Flash Learning</td>
+                <td style="font-size: 36px; color: rgb(255, 153, 0);">About Neural Nuts</td>
             </tr>
             <tr>
-                <td style="max-width: 200px;">Struggling to remember key information? Many of us do, because individualism naturally resists instruction and authority . This interactive game transforms studying from tedious to engaging, helping knowledge stick without all the stress.</td>
+                <td style="max-width: 200px;">"Neural Nuts" strives to transform lessons into pursuits, inviting children (and adults), in the new world of AI, to become collaborative stakeholders in their own educational journeys rather than passive passengers. Swipe through our co-constructed game collection or click HERE for more background.</td>
             </tr>
-            <tr>
-                <td>Choose your revision topic:</td>
-            </tr>
-            <tr>
-                <td>
-                    <select id="TestOptions" onchange="handleComboboxChange(this.value)">
-                    
-                    </select>
-                </td>
-            </tr>
-<tr><td id="descSelected">
-                &nbsp;
-</td></tr>
+          
+
             <tr><td>
             <fieldset id="levels">
                 <legend>Select your difficulty level:</legend>
@@ -207,28 +189,25 @@
                     <button type="submit">Start Game</button>
                 </div>
             </td></tr>
-          <tr><td><img id="fadingImage" src="swipe.svg" alt="Fading image"></td></tr>
+            <tr><td><img id="fadingImage" src="swipe.svg" alt="Fading image"></td></tr>
         </table>
     </form>
 
 </body>
 <script>
-
-
+     
     var myElement = document.body;
     var hammertime = new Hammer(myElement);
 
     hammertime.on('swipeleft', function(ev) {
         console.log('Swiped left!', ev);
-        document.location.href = "fwslMenu.html";
+        document.location.href = "menu.html";
     });
 
     hammertime.on('swiperight', function(ev) {
         console.log('Swiped right!', ev);
-        document.location.href = "AboutNeuralNuts.html";
+        document.location.href = "customMenu.html";
     });
-
-
 
 </script>
 </html>

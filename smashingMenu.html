@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flash Learning</title>
+    <title>S.M.A.S.H.I.N.G</title>
     <style>
 
 
@@ -70,6 +70,7 @@
             scoreCell.textContent = "Your correctly answered " + GCorrectanswers + " in " + GCompletionTime + " seconds."
         }
 
+        /*
         loadTextFile('https://cbeauty.github.io/FlashLearning/Smashingsubjects.txt').then(dataArray => {
         if (dataArray.length > 0) {
         
@@ -96,7 +97,7 @@
 
 
         });
-
+*/
     });
 
 
@@ -105,12 +106,12 @@
     event.preventDefault(); // Prevent default form submission
 
   
-    
+  /*  
     // Get form elements
     const chosensubject = document.getElementById('TestOptions');
     const selectedIndex = chosensubject.selectedIndex;
-    const selectedOption = chosensubject.options[selectedIndex];
-
+    const selectedOption = "Manx";chosensubject.options[selectedIndex];
+*/
 
     let rows=3;
     let cols=3;
@@ -127,7 +128,7 @@
         cols=5;
     }
     // Get values
-    const subject = selectedOption.value;
+    const subject = "Smashing";//selectedOption.value;
 
     // Construct URL with parameters
     const newPageUrl = 'smashing.html?subject='+encodeURIComponent(subject)+'&rows='+encodeURIComponent(rows)+'&cols='+encodeURIComponent(rows);
@@ -156,18 +157,9 @@
                 <td style="font-size: 36px; color: rgb(0, 255, 42);">S.M.A.S.H.I.N.G</td>
             </tr>
             <tr>
-                <td><i>Living Younger Longer</i></td>
+                <td style="max-width: 200px;">Education is more than exchanging second-hand knowledge. At its core, learning springs from action and first-hand discovery. Engage with this game to subliminally awaken your curiosity and zest for living. Click HERE or complete the experience for additional insights.</td>
             </tr>
-            <tr>
-                <td>Choose your game of life:</td>
-            </tr>
-            <tr>
-                <td>
-                    <select id="TestOptions">
-                    
-                    </select>
-                </td>
-            </tr>
+          
 
             <tr><td>
             <fieldset id="levels">
@@ -208,7 +200,7 @@
 
     hammertime.on('swipeleft', function(ev) {
         console.log('Swiped left!', ev);
-        document.location.href = "menu.html";
+        document.location.href = "customMenu.html";
     });
 
     hammertime.on('swiperight', function(ev) {
