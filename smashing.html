@@ -70,17 +70,47 @@ function showOverlay() {
     if(questions[grid[selectedQ]].startsWith('#')){
 
 
-    var overlay = document.getElementById("gridoverlayImage");
+    
+    if(GSubject ==='Smashing'){
+      if (innerWidth < window.innerHeight) {
+        var overlay = document.getElementById("smashinggridoverlayImage");
+        if (innerWidth < window.innerHeight) {
+            overlay.style.width = "100%";
+            overlay.style.height = "auto";
+        } else {
+            overlay.style.height = "100%";
+            overlay.style.width = "auto";
+        }
+        overlay.style.aspectRatio = "1";
+      } else {
+           var overlay = document.getElementById("gridoverlayImage");
+      }
+  }
+
+
+
     const clonedOverlay = overlay.cloneNode(true);
     const parts = questions[grid[selectedQ]].split('#');
     console.log('cell id:',cell);
     console.log('image src:', 'https://cbeauty.github.io/FlashLearning/' + '.png');
     clonedOverlay.src =   'https://cbeauty.github.io/FlashLearning/' + parts[1].trim() + '.png';
     
-    //clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
-    ///clonedOverlay.style.top = cellRect.top + cellRect.height/2; // The x-coordinate of the cell's left edge, relative to the viewport
-   clonedOverlay.style.width = '100%';
-   clonedOverlay.style.height =  '100%';
+    if(GSubject ==='Smashing'){
+      clonedOverlay.style.aspectRatio = "1";
+      if (innerWidth < window.innerHeight) {
+         clonedOverlay.style.width = '100%';
+          clonedOverlay.style.height = 'auto';
+      }
+      else {
+        clonedOverlay.style.height = '100%';
+        clonedOverlay.style.width = 'auto';
+      }
+
+    }
+    else{
+      clonedOverlay.style.width =  '100%';
+      clonedOverlay.style.height =  '100%';
+    }
     document.body.appendChild(clonedOverlay);
     //cell.appendChild(clonedOverlay);
     clonedOverlay.style.display = "block"; // Change from 'none' to 'block' to show the image
@@ -161,8 +191,22 @@ function showOverlay() {
 			}
 
 
+
     const table = document.createElement('table');
-    table.classList.add('fixed-table'); // Apply the CSS class
+    if(GSubject =='Smashing'){
+        table.classList.add('smashingfixed-table'); // Apply the CSS class
+        if (window.innerWidth < window.innerHeight) {
+            table.style.width = window.innerWidth;
+            table.style.height = window.innerWidth;
+        } else {
+            table.style.height = window.innerHeight;
+            table.style.width = window.innerHeight;
+        }
+        table.style.aspectRatio = "1";
+      } else {
+            table.classList.add('fixed-table'); // Apply the CSS class
+      }
+  
 
     // Create table header
     const thead = document.createElement('thead');

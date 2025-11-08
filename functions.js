@@ -65,6 +65,7 @@ async function loadTextFile(fileURL) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  return
     const loadFileButton = document.getElementById('loadFileButton');
     const fileInput = document.getElementById('fileInput');
     const fileList = document.getElementById('fileList');

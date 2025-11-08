@@ -105,11 +105,7 @@
     padding: 10px 20px;
     cursor: pointer;
 }
- td {
-      aspect-ratio: 16 / 9; /* Example: 16:9 aspect ratio */
-      /* Or for a 1:1 aspect ratio (square): */
-      /* aspect-ratio: 1 / 1; */
-    }
+
 
     .overlay {
         position: fixed;
@@ -136,6 +132,16 @@
     width: 100px;
     height: auto;
 }
+.smashinggridoverlay-image {
+    position: absolute; /* Positions this image relative to the container */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the image perfectly */
+    z-index: 2; /* Ensures the overlay image is on top */
+    display: none; /* Initially hides the image */
+   /* pointer-events: none;*/
+
+}
 .overlay-image {
     position: absolute; /* Positions this image relative to the container */
     top: 50%;
@@ -148,7 +154,23 @@
     width: 100px;
     height: auto;
 }
-
+  .smashingfixed-table {
+    table-layout: fixed; /* Important for fixed column widths */
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+  }
+.smashingfixed-table th,
+  .fixed-table td {
+    width: 20%; /* Fixed cell width (adjust as needed) */
+    height: 20%; /* Fixed row height (adjust as needed) */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Add ellipsis for hidden text */
+    white-space: wrap; /* Prevent text wrapping */
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
   .fixed-table {
     table-layout: fixed; /* Important for fixed column widths */
     width: 100%; /* Or a specific fixed width */
