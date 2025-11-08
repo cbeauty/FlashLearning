@@ -105,6 +105,11 @@
     padding: 10px 20px;
     cursor: pointer;
 }
+ td {
+      aspect-ratio: 16 / 9; /* Example: 16:9 aspect ratio */
+      /* Or for a 1:1 aspect ratio (square): */
+      /* aspect-ratio: 1 / 1; */
+    }
 
     .overlay {
         position: fixed;
