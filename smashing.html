@@ -168,6 +168,10 @@ function showOverlay() {
 
   };
 
+  window.addEventListener('orientationchange', function() {
+    window.location.reload();
+});
+
   function createFixedTable(containerId, rows, cols) {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -176,20 +180,6 @@ function showOverlay() {
     }
 
  
-   console.log('answers:',answers);   
-		for (let i = 0; i < answers.length; i++) {
-			selected.push(0);
-		}
-
-		for (let i = 0; i < rows*cols; i++) {
-
-			let selectedA = getRandomInt(0, answers.length-1);
-			while (selected[selectedA] ==1){
-				selectedA = getRandomInt(0, answers.length-1);
-				}
-			selected[selectedA] = 1;
-			grid[i]=selectedA;
-			}
 
 
 
@@ -236,7 +226,7 @@ function showOverlay() {
           cell.style.fontSize = "6";
         }
         else{
-          cell.style.fontSize = "24";
+          cell.style.fontSize = "48";
         }
         cell.textContent = celcontent;
         cell.style.textAlign = "center";  
@@ -404,6 +394,21 @@ function showOverlay() {
     loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'answers.txt').then(dataArray => {
     if (dataArray.length > 0) {
       answers = dataArray;
+         console.log('answers:',answers);   
+		for (let i = 0; i < answers.length; i++) {
+			selected.push(0);
+		}
+
+		for (let i = 0; i < GRows*GCols; i++) {
+
+			let selectedA = getRandomInt(0, answers.length-1);
+			while (selected[selectedA] ==1){
+				selectedA = getRandomInt(0, answers.length-1);
+				}
+			selected[selectedA] = 1;
+			grid[i]=selectedA;
+			}
+
       createFixedTable('table-container', GRows, GCols); // displayArrayInHtml(dataArray, 'item-list');
     } else {
         document.getElementById('item-list').textContent = 'No data found or error loading answers file.';

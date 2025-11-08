@@ -138,7 +138,8 @@
     left: 50%;
     transform: translate(-50%, -50%); /* Centers the image perfectly */
     z-index: 2; /* Ensures the overlay image is on top */
-    display: none; /* Initially hides the image */
+     /* display: none; Initially hides the image */
+    visibility: hidden;
    /* pointer-events: none;*/
        width: auto;
     height: auto;
