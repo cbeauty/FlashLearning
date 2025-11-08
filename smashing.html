@@ -203,11 +203,11 @@
     if (GSubject == "Smashing") {
       table.classList.add("smashingfixed-table"); // Apply the CSS class
       if (window.innerWidth < window.innerHeight) {
-        table.style.width = window.innerWidth;
-        table.style.height = window.innerWidth;
+        table.style.width = window.innerWidth-10;
+        table.style.height = window.innerWidth-10;
       } else {
-        table.style.height = window.innerHeight;
-        table.style.width = window.innerHeight;
+        table.style.height = window.innerHeight-1;
+        table.style.width = window.innerHeight-10;
       }
       table.style.aspectRatio = "1";
     } else {
