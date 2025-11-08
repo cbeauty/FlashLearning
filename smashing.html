@@ -202,10 +202,10 @@ function showOverlay() {
     if(GSubject ==='Smashing'){
     if (innerWidth < window.innerHeight) {
         table.style.width = "100%";
-        table.style.height = "auto";
+        table.style.height = window.innerWidth+ 'px';
     } else {
         table.style.height = "100%";
-        table.style.width = "auto";
+        table.style.width = window.innerHeight+ 'px';
     }
   }
     table.style.aspectRatio = "1";

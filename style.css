@@ -106,7 +106,6 @@
     cursor: pointer;
 }
 
-
     .overlay {
         position: fixed;
         top: 50%;
@@ -120,29 +119,26 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         z-index: 1000; /* Ensure it appears above other content */
     }
+    .smashingoverlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000; /* Ensure it appears above other content */
+    }
 .gridoverlay-image {
     position: absolute; /* Positions this image relative to the container */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Centers the image perfectly */
-    z-index: 1002; /* Ensures the overlay image is on top */
+    z-index: 2; /* Ensures the overlay image is on top */
     display: none; /* Initially hides the image */
    /* pointer-events: none;*/
     /* Add desired width/height for the overlay image */
-    width: 100px;
-    height: auto;
-}
-.smashinggridoverlay-image {
-    position: absolute; /* Positions this image relative to the container */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centers the image perfectly */
-    z-index: 2; /* Ensures the overlay image is on top */
-     /* display: none; Initially hides the image */
-    visibility: hidden;
-   /* pointer-events: none;*/
-       width: auto;
-    height: auto;
 
 }
 .overlay-image {
@@ -154,25 +150,16 @@
     display: none; /* Initially hides the image */
     pointer-events: none;
     /* Add desired width/height for the overlay image */
-    width: 100px;
+    width: 100%;
     height: auto;
 }
+
   .smashingfixed-table {
     table-layout: fixed; /* Important for fixed column widths */
     border-collapse: collapse;
+    align-self: center;
     margin-left: auto;
     margin-right: auto;
-  }
-  .smashingfixed-table th,
-  .smashingfixed-table td {
-    width: 20%; /* Fixed cell width (adjust as needed) */
-    height: 20%; /* Fixed row height (adjust as needed) */
-    overflow: hidden; /* Hide overflowing content */
-    text-overflow: ellipsis; /* Add ellipsis for hidden text */
-    white-space: wrap; /* Prevent text wrapping */
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
   }
   .fixed-table {
     table-layout: fixed; /* Important for fixed column widths */
@@ -180,8 +167,7 @@
     height: 100%;
     border-collapse: collapse;
   }
-
-   .fixed-table th,
+  .fixed-table th,
   .fixed-table td {
     width: 20%; /* Fixed cell width (adjust as needed) */
     height: 20%; /* Fixed row height (adjust as needed) */
