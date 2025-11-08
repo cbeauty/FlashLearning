@@ -216,6 +216,7 @@ function showOverlay() {
       th.colSpan = cols;
       th.style.textAlign = 'center';
       th.textContent = GSubject;
+      th.style.fontSize = 24;
       headerRow.appendChild(th);
     //}
     thead.appendChild(headerRow);
@@ -389,7 +390,7 @@ window.addEventListener('orientationchange', function() {
     
  if(GSubject=="Smashing"){
       console.log('ALERT!!!!');
-      customAlert("<h2>Get ready to SMASH! Click on the cells that match the audio prompts. Good luck!<h2>");
+      customAlert("<h1>Get ready to SMASH! Click on the cells that match the audio prompts. Good luck!<h1>");
       loadTextFile('https://cbeauty.github.io/FlashLearning/'+GSubject+'audios.txt').then(dataArray => {
       if (dataArray.length > 0) {
         audios = dataArray;

@@ -160,8 +160,8 @@
     margin-left: auto;
     margin-right: auto;
   }
-.smashingfixed-table th,
-  .fixed-table td {
+  .smashingfixed-table th,
+  .smashingfixed-table td {
     width: 20%; /* Fixed cell width (adjust as needed) */
     height: 20%; /* Fixed row height (adjust as needed) */
     overflow: hidden; /* Hide overflowing content */
@@ -178,7 +178,7 @@
     border-collapse: collapse;
   }
 
-  .fixed-table th,
+   .fixed-table th,
   .fixed-table td {
     width: 20%; /* Fixed cell width (adjust as needed) */
     height: 20%; /* Fixed row height (adjust as needed) */
