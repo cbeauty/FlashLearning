@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <link rel="stylesheet" href="style.css" />
 <div id="table-container"></div>
 <div class="image-container">
@@ -32,6 +34,7 @@
   let GRows = 5;
   let GCols = 5;
   let GSubject = "";
+  let GSource = "";
   let newDiv; //for overlays
   let answerCount = 0;
   let selectedQ = -1;
@@ -78,7 +81,22 @@
     }
 
     if (questions[grid[selectedQ]].startsWith("#")) {
-      var overlay = document.getElementById("gridoverlayImage");
+      if (GSubject === "Smashing") {
+        if (innerWidth < window.innerHeight) {
+          var overlay = document.getElementById("smashinggridoverlayImage");
+          if (innerWidth < window.innerHeight) {
+            overlay.style.width =  window.innerHeight;
+            overlay.style.height = "auto";
+          } else {
+            overlay.style.height = "100%";
+            overlay.style.width = "auto";
+          }
+          overlay.style.aspectRatio = "1";
+        } else {
+          var overlay = document.getElementById("gridoverlayImage");
+        }
+      }
+
       const clonedOverlay = overlay.cloneNode(true);
       const parts = questions[grid[selectedQ]].split("#");
       console.log("cell id:", cell);
@@ -89,22 +107,19 @@
       clonedOverlay.src =
         "https://cbeauty.github.io/FlashLearning/" + parts[1].trim() + ".png";
 
-      //clonedOverlay.style.left = cellRect.left + cellRect.width/2; // The x-coordinate of the cell's left edge, relative to the viewport
-      ///clonedOverlay.style.top = cellRect.top + cellRect.height/2; // The x-coordinate of the cell's left edge, relative to the viewport
-
-      clonedOverlay.style.width = "100%";
-      clonedOverlay.style.height = "100%";
-
-      if (GSubject === "Smashing") {
-        if (window.innerWidth < window.innerHeight) {
-          clonedOverlay.style.width = "100%";
-          clonedOverlay.style.height = "auto";
-        } else {
-          clonedOverlay.style.height = "100%";
-          clonedOverlay.style.width = "auto";
-        }
+      if (GSubject === "Smashing" && window.innerWidth > window.innerHeight) {
+      if (window.innerWidth < window.innerHeight) {
+        table.style.width = window.innerWidth;
+        table.style.height = window.innerWidth;
+      } else {
+        table.style.height = window.innerHeight;
+        table.style.width = window.innerHeight;
       }
-      clonedOverlay.style.aspectRatio = "1";
+      table.style.aspectRatio = "1";
+      } else {
+        clonedOverlay.style.width = "100%";
+        clonedOverlay.style.height = "100%";
+      }
       document.body.appendChild(clonedOverlay);
       //cell.appendChild(clonedOverlay);
       clonedOverlay.style.display = "block"; // Change from 'none' to 'block' to show the image
@@ -117,19 +132,6 @@
       newDiv = document.createElement("div");
       newDiv.id = "dynamicLayer";
       newDiv.className = "overlay";
-      newDiv.style.height = "100%";
-      newDiv.style.width = "100%";
-
-      if (GSubject === "Smashing") {
-        if (ScreenOrientationwindow.innerWidth < window.innerHeight) {
-          newDiv.style.width = "100%";
-          newDiv.style.height = "auto";
-        } else {
-          newDiv.style.height = "100%";
-          newDiv.style.width = "auto";
-        }
-      }
-      newDiv.style.aspectRatio = "1";
       newDiv.style.opacity = "0";
       newDiv.innerHTML =
         "<center><h2>" +
@@ -153,16 +155,13 @@
     // const container = document.getElementById('myContainer');
     // container.appendChild(newDiv);
   }
-/*
-  window.addEventListener("orientationchange", function () {
-    window.location.reload();
-     //createFixedTable("table-container", GRows, GCols); // displayArrayInHtml(dataArray, 'item-list');
-  });
-*/
+
   function returnToMenu() {
     const timenow = new Date();
     const timeparam = (timenow - timerStarted) / 1000.0 - 1;
     const scoreparam = GRows * GCols;
+    if(GSource != "TBW"){
+
     let newPageUrl =
       "menu.html?correctanswers=" +
       encodeURIComponent(scoreparam) +
@@ -182,10 +181,16 @@
         "&time=" +
         encodeURIComponent(timeparam);
     }
-
-    // Redirect to the new page
+        // Redirect to the new page
     window.location.href = newPageUrl;
   }
+  else{}
+  window.parent.postMessage(scoreparam + ":"+timeparam, 'https://cbeauty.github.io/FlashLearning/SmashingDraft.html'); 
+  }
+
+  window.addEventListener("orientationchange", function () {
+    window.location.reload();
+  });
 
   function createFixedTable(containerId, rows, cols) {
     const container = document.getElementById(containerId);
@@ -194,36 +199,30 @@
       return;
     }
 
-    
-
     const table = document.createElement("table");
-    if (GSubject === "Smashing") {
+    if (GSubject == "Smashindg") {
       table.classList.add("smashingfixed-table"); // Apply the CSS class
+      if (window.innerWidth < window.innerHeight) {
+        table.style.width = "100%";
+        table.style.height = "auto";
+      } else {
+        table.style.height = "100%";
+        table.style.width = auto;
+      }
+      table.style.aspectRatio = "1";
     } else {
       table.classList.add("fixed-table"); // Apply the CSS class
     }
 
-    table.style.width = "100%";
-    table.style.height = "100%";
-
-    if (GSubject === "Smashing") {
-      if (innerWidth < window.innerHeight) {
-        table.style.width = "100%";
-        table.style.height = window.innerWidth + "px";
-      } else {
-        table.style.height = "100%";
-        table.style.width = window.innerHeight + "px";
-      }
-    }
-    table.style.aspectRatio = "1";
-
+    // Create table header
     const thead = document.createElement("thead");
     const headerRow = document.createElement("tr");
-    //for (let i = 0; i < cols; i++) {
+    // for (let i = 0; i < cols; i++) {
     const th = document.createElement("th");
     th.colSpan = cols;
     th.style.textAlign = "center";
     th.textContent = GSubject;
+    th.style.fontSize = 24;
     headerRow.appendChild(th);
     //}
     thead.appendChild(headerRow);
@@ -238,11 +237,11 @@
         cell.id = "cell" + i * cols + j;
         const celcontent =
           grid[i * cols + j] + ":" + answers[grid[i * cols + j]];
-        cell.style.width = window.innerWidth / cols + "px";
+
         if (answers[grid[i * cols + j]].startsWith("#")) {
           cell.style.fontSize = "6";
         } else {
-          cell.style.fontSize = "24";
+          cell.style.fontSize = "48";
         }
         cell.textContent = celcontent;
         cell.style.textAlign = "center";
@@ -352,8 +351,6 @@
   document.addEventListener("DOMContentLoaded", () => {
     const queryString = window.location.search; // Example: "?name=John&age=30"
     const params = new URLSearchParams(queryString);
-    
-    screen.orientation.lock();
 
     console.log("Page parameters:", queryString);
 
@@ -365,6 +362,9 @@
     }
     if (params.has("subject")) {
       GSubject = params.get("subject");
+    }
+   if (params.has("source")) {
+      GSource = params.get("source");
     }
 
     loadTextFile(
@@ -393,7 +393,7 @@
     if (GSubject == "Smashing") {
       console.log("ALERT!!!!");
       customAlert(
-        "<h2>Get ready to SMASH! Click on the cells that match the audio prompts. Good luck!<h2>"
+        "<h1>Get ready to SMASH! Click on the cells that match the audio prompts. Good luck!<h1>"
       );
       loadTextFile(
         "https://cbeauty.github.io/FlashLearning/" + GSubject + "audios.txt"
@@ -426,6 +426,7 @@
           selected[selectedA] = 1;
           grid[i] = selectedA;
         }
+
         createFixedTable("table-container", GRows, GCols); // displayArrayInHtml(dataArray, 'item-list');
       } else {
         document.getElementById("item-list").textContent =
