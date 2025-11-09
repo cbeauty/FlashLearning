@@ -153,12 +153,12 @@
     // const container = document.getElementById('myContainer');
     // container.appendChild(newDiv);
   }
-
+/*
   window.addEventListener("orientationchange", function () {
-    //window.location.reload();
-     createFixedTable("table-container", GRows, GCols); // displayArrayInHtml(dataArray, 'item-list');
+    window.location.reload();
+     //createFixedTable("table-container", GRows, GCols); // displayArrayInHtml(dataArray, 'item-list');
   });
-
+*/
   function returnToMenu() {
     const timenow = new Date();
     const timeparam = (timenow - timerStarted) / 1000.0 - 1;
@@ -352,6 +352,8 @@
   document.addEventListener("DOMContentLoaded", () => {
     const queryString = window.location.search; // Example: "?name=John&age=30"
     const params = new URLSearchParams(queryString);
+    
+    screen.orientation.lock();
 
     console.log("Page parameters:", queryString);
 
