@@ -150,8 +150,8 @@
     display: none; /* Initially hides the image */
     pointer-events: none;
     /* Add desired width/height for the overlay image */
-    width: 100%;
-    height: auto;
+   /* width: 100%;
+    height: auto; */
 }
 
   .smashingfixed-table {
